@@ -59,6 +59,9 @@
 </p>
 
 ## 👤 Contacts
+
 > Email: marco.antolini2001@gmail.com
+
+> Discord: h4nto#6969
 
 </div>
