@@ -8,7 +8,7 @@
 
 <img alt="DenverCoder1's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight"/>
 </br>
-<img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&layout=compact&theme=tokyonight&card_width=450&langs_count=10"/>
+<img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&card_width=450&langs_count=10"/>
 </br>
 <img alt="Marco Antolini's Trophies" width="450" src="https://github-profile-trophy.vercel.app/?username=MarcoAntolini&theme=tokyonight&row=2&column=3"/>
 
