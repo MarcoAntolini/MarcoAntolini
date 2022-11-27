@@ -5,6 +5,8 @@
 </div>
 
 <div align="center">
+    
+    ![Custom badge](https://img.shields.io/endpoint?label=C%2B%2B&logo=C%2B%2B&style=plastic)
 
 <img alt="DenverCoder1's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight"/>
 </br>
