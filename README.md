@@ -102,3 +102,5 @@
   <p>Discord: h4nto#6969</p>
 
 </details>
+
+<img src="github-snake-dark.svg#gh-dark-mode-only">
