@@ -81,26 +81,14 @@
 <details> 
   <summary><h2>📊 Github Stats and Activity</h2></summary>
 
-  <h3>🔥 Streak Stats</h3>
-
-  <p>
-    <a href="https://github.com/DenverCoder1/github-readme-streak-stats">
-      <img alt="Marco Antolini's streak" src="https://streak-stats.demolab.com/?user=DenverCoder1&theme=tokyonight&hide_border=true"/>
-    </a>
+  <p align="center">
+    <img alt="Marco Antolini's streak" src="https://streak-stats.demolab.com/?user=DenverCoder1&theme=tokyonight&hide_border=true"/>
   </p>
 
-  <h3>💻 GitHub Profile Stats</h3>
-
-  <img alt="Marco Antolini's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
-  </br>
+  <p align="center">
+    <img alt="Marco Antolini's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
     <img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&card_width=450&langs_count=10&hide_border=true"/>
-  </br>
-  <img alt="Marco Antolini's Trophies" width="450" src="https://github-profile-trophy.vercel.app/?username=MarcoAntolini&theme=tokyonight&row=2&column=3&hide_border=true"/>
-
-  <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="DenverCoder1's Github Stats" src="https://denvercoder1-github-readme-stats.vercel.app/api/?username=DenverCoder1&show_icons=true&include_all_commits=true&count_private=true&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/></a>
-  <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="DenverCoder1's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DenverCoder1&langs_count=8&layout=compact&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866&hide=Jupyter%20Notebook" height="192px"/></a>
-  <br/>
-
+  </p>
 
   <a href="https://github.com/ashutosh00710/github-readme-activity-graph"><img alt="DenverCoder1's Activity Graph" src="https://activity-graph.herokuapp.com/graph/?username=DenverCoder1&bg_color=1F222E&color=F8D866&line=F85D7F&point=FFFFFF&hide_border=true" /></a>
 
