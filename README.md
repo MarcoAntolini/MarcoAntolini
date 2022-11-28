@@ -9,6 +9,25 @@
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?          font=Fira+Code&pause=1000&color=6788F7&center=true&vCenter=true&width=435&lines=Always+learning+new+things!" alt="Typing SVG" /></a>
 </p>
 
+<!-- My Github Stats -->
+
+<details open> 
+  <summary><h2>📊 Github Stats and Activity</h2></summary>
+
+  <p align="center">
+    <img alt="Marco Antolini's streak" src="https://streak-stats.demolab.com/?user=DenverCoder1&theme=tokyonight&hide_border=true"/>
+  </p>
+
+  <p align="center">
+    <img alt="Marco Antolini's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
+    <img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&card_width=450&langs_count=10&hide_border=true"/>
+  </p>
+
+  <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true" />
+
+  <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
+</details>
+
 <!-- My Favourite Tools -->
 
 <details open>
@@ -76,32 +95,10 @@
   </p>
 </details>
 
-<!-- My Github Stats -->
+<details>
+  <summary><h2>👤 Contacts</h2></summary>
+    
+  <p>Email: marco.antolini2001@gmail.com</p>
+  <p>Discord: h4nto#6969</p>
 
-<details> 
-  <summary><h2>📊 Github Stats and Activity</h2></summary>
-
-  <p align="center">
-    <img alt="Marco Antolini's streak" src="https://streak-stats.demolab.com/?user=DenverCoder1&theme=tokyonight&hide_border=true"/>
-  </p>
-
-  <p align="center">
-    <img alt="Marco Antolini's Github Stats" width="450" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
-    <img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&card_width=450&langs_count=10&hide_border=true"/>
-  </p>
-
-  <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true" />
-
-  <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </details>
-
-
-
-
-## 👤 Contacts
-
-> Email: marco.antolini2001@gmail.com
-
-> Discord: h4nto#6969
-
-</div>
