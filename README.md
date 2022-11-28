@@ -92,9 +92,9 @@
 
   <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true" />
 
-  </h4>
+  </h3>
   <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
-  </h4>
+  </h3>
 </details>
 
 
