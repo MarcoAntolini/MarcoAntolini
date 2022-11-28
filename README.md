@@ -20,7 +20,7 @@
 
   <p align="center">
     <img alt="Marco Antolini's Github Stats" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
-    <img alt="Marco Antolini's Top Languages" width="450" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&langs_count=10&hide_border=true&card_width=450"/>
+    <img alt="Marco Antolini's Top Languages" height="196" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&langs_count=10&hide_border=true"/>
   </p>
 
   <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true" />
