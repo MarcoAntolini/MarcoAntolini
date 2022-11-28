@@ -1,7 +1,12 @@
 <p align="center">
+  <a href="https://github.com/MarcoAntolini">
+    <img src="https://user-images.githubusercontent.com/93138565/204394594-2fb28f06-2faf-4b60-8fb9-7c8672a2b3d9.png" alt="Marco Antolini" /></a>
+</p>
+
+<p align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6788F7&center=true&vCenter=true&width=435&lines=Always+learning+new+things!" alt="Typing SVG" /></a>
 </p>
-    
+
 <div align="center">
     
 ## 👨‍💻 Welcome to Marco Antolini's Profile
