@@ -103,8 +103,8 @@
 
 <details>
   <summary><h2>👤 Contacts</h2></summary>
-    
-  <p>Email: marco.antolini2001@gmail.com</p>
+  
+  <p>Email: <a href="marco.antolini2001@gmail.com">marco.antolini2001@gmail.com</a></p>
   <p>Discord: h4nto#6969</p>
 
 </details>
