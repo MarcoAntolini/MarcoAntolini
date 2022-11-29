@@ -104,7 +104,7 @@
 <details>
   <summary><h2>👤 Contacts</h2></summary>
   
-  <p><img height=18 src="https://user-images.githubusercontent.com/93138565/204413796-00fee852-875a-41d6-ac4b-866636cca106.png"> Email: <a href="mailto:marco.antolini2001@gmail.com">marco.antolini2001@gmail.com</a></p>
+  <p><img src="https://user-images.githubusercontent.com/93138565/204414651-1d3ba17f-da7e-4183-8ca3-2f8a1455ba71.png"> Email: <a href="mailto:marco.antolini2001@gmail.com">marco.antolini2001@gmail.com</a></p>
   <p>Discord: h4nto#6969</p>
 
 </details>
