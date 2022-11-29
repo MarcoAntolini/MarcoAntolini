@@ -104,3 +104,4 @@
 </details>
 
 ![GitHub Snake dark](github-snake-dark.svg#gh-dark-mode-only)
+<img src="https://github.com/MarcoAntolini/MarcoAntolini/blob/output/github-contribution-grid-snake.svg">
