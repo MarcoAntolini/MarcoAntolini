@@ -9,6 +9,10 @@
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6788F7&center=true&vCenter=true&width=435&lines=Always+learning+new+things!"/></a>
 </p>
 
+<p align="center">
+  <img src="https://github-view-counter.herokuapp.com">
+</p>
+
 <!-- My Github Stats -->
 
 <details> 
@@ -95,6 +99,8 @@
   </p>
 </details>
 
+<!-- My Contacts -->
+
 <details>
   <summary><h2>👤 Contacts</h2></summary>
     
@@ -102,8 +108,6 @@
   <p>Discord: h4nto#6969</p>
 
 </details>
-
-<img src="https://github-view-counter.herokuapp.com">
 
 <p align="center">
   <img src="https://github.com/MarcoAntolini/MarcoAntolini/blob/output/github-contribution-grid-snake.svg">
