@@ -19,7 +19,7 @@
   <summary><h2>📊 Github Stats and Activity</h2></summary>
 
   <p align="center">
-    <img alt="Marco Antolini's Streak" src="https://streak-stats.demolab.com/?user=DenverCoder1&theme=tokyonight&hide_border=true"/>
+    <img alt="Marco Antolini's Streak" src="https://streak-stats.demolab.com/?user=MarcoAntolini&theme=tokyonight&hide_border=true"/>
   </p>
 
   <p align="center">
