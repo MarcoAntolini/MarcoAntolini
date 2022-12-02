@@ -25,7 +25,6 @@
   <p align="center">
     <img alt="Marco Antolini's Streak" src="https://streak-stats.demolab.com/?user=MarcoAntolini&theme=tokyonight&hide_border=true"/>
   </p>
-
   <p align="center">
     <img alt="Marco Antolini's Github Stats" src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"/>
     <img alt="Marco Antolini's Top Languages" height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&show_icons=true&layout=compact&theme=tokyonight&langs_count=10&hide_border=true"/>
