@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-view-counter.herokuapp.com">
+  <img src="https://komarev.com/ghpvc/?username=MarcoAntolini&style=platic&color=6788F7">
 </p>
 
 <!-- My Github Stats -->
