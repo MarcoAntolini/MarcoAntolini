@@ -17,8 +17,8 @@
 
 <!-- My Github Stats -->
 
-<details> 
-  <summary><h2>📊 Github Stats and Activity</h2></summary>
+<details align="center"> 
+  <summary><h2><img width="55" src="https://media.giphy.com/media/ZCN6F3FAkwsyOGU2RS/giphy.gif" align="center"/> Github Stats and Activity <img width="55" src="https://media.giphy.com/media/ZCN6F3FAkwsyOGU2RS/giphy.gif" align="center"/></h2></summary>
 
   <p align="center">
     <img alt="Marco Antolini's Streak" src="https://streak-stats.demolab.com/?user=MarcoAntolini&theme=tokyonight&hide_border=true"/>
@@ -31,13 +31,13 @@
 
   <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true"/>
 
-  <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
+  <b>Note:</b> <i>Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.</i>
 </details>
 
 <!-- My Favourite Tools -->
 
-<details>
-  <summary><img width="45" src="https://camo.githubusercontent.com/beb64ff21c883e318e4f5db5231c2ba4175705bea1c9249e82a41ab375db4f75/68747470733a2f2f6d65646961322e67697068792e636f6d2f6d656469612f51737347456d706b79454f684243623765312f67697068792e6769663f6369643d656366303565343761306e336769316266716e74716d6f62386739616964316f796a327772336473336d67373030626c267269643d67697068792e676966" align="center"/> <h2>My Favorite Tools</h2> <img width="45" src="https://camo.githubusercontent.com/beb64ff21c883e318e4f5db5231c2ba4175705bea1c9249e82a41ab375db4f75/68747470733a2f2f6d65646961322e67697068792e636f6d2f6d656469612f51737347456d706b79454f684243623765312f67697068792e6769663f6369643d656366303565343761306e336769316266716e74716d6f62386739616964316f796a327772336473336d67373030626c267269643d67697068792e676966" align="center"/></summary>
+<details align="center">
+  <summary><h2><img width="45" src="https://camo.githubusercontent.com/beb64ff21c883e318e4f5db5231c2ba4175705bea1c9249e82a41ab375db4f75/68747470733a2f2f6d65646961322e67697068792e636f6d2f6d656469612f51737347456d706b79454f684243623765312f67697068792e6769663f6369643d656366303565343761306e336769316266716e74716d6f62386739616964316f796a327772336473336d67373030626c267269643d67697068792e676966" align="center"/> My Favorite Tools <img width="45" src="https://camo.githubusercontent.com/beb64ff21c883e318e4f5db5231c2ba4175705bea1c9249e82a41ab375db4f75/68747470733a2f2f6d65646961322e67697068792e636f6d2f6d656469612f51737347456d706b79454f684243623765312f67697068792e6769663f6369643d656366303565343761306e336769316266716e74716d6f62386739616964316f796a327772336473336d67373030626c267269643d67697068792e676966" align="center"/></h2></summary>
   
   <h3>👨‍💻 Programming and Markup Languages</h3>
 
@@ -101,8 +101,8 @@
 
 <!-- My Contacts -->
 
-<details>
-  <summary><h2>👤 Contacts</h2></summary>
+<details align="center">
+  <summary><h2><img width="35" src="https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" align="top"> Contacts <img width="35" src="https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" align="top"></h2></summary>
   
   <p><img align="center" height=16px src="https://user-images.githubusercontent.com/93138565/204414651-1d3ba17f-da7e-4183-8ca3-2f8a1455ba71.png"> Email: <a href="mailto:marco.antolini2001@gmail.com"><b>marco.antolini2001@gmail.com</b></a></p>
   <p><img align="center" height=16px src="https://user-images.githubusercontent.com/93138565/204414649-7c90f056-0acc-418d-9cbd-539d95c3be03.png"> Discord: <b>h4nto#6969</b></p>
