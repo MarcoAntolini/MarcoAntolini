@@ -1,5 +1,7 @@
 <!-- About Me -->
 
+<!-- <img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"/> -->
+
 <p align="center">
   <a href="https://github.com/MarcoAntolini">
     <img src="https://user-images.githubusercontent.com/93138565/204394594-2fb28f06-2faf-4b60-8fb9-7c8672a2b3d9.png" alt="Marco Antolini" /></a>
