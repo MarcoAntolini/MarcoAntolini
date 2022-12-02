@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=MarcoAntolini&style=platic&color=6788F7">
+  <img src="https://komarev.com/ghpvc/?username=MarcoAntolini&style=plastic&color=6788F7">
   <img src="https://img.shields.io/github/followers/MarcoAntolini?label=Followers&style=plastic&color=6788F7"/>
   <img src="https://custom-icon-badges.herokuapp.com/badge/dynamic/json?logo=star&color=6788F7&label=Stars&style=plastic&query=%24.stars&url=https://api.github-star-counter.workers.dev/user/MarcoAntolini"/></a>
 </p>
