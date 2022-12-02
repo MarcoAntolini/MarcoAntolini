@@ -1,11 +1,11 @@
 <?php
 
 // disable cache so that the image will be fetched every time
-$timestamp = gmdate("D, d M Y H:i:s") . " GMT";
-header("Expires: $timestamp");
-header("Last-Modified: $timestamp");
-header("Pragma: no-cache");
-header("Cache-Control: no-cache, must-revalidate");
+//$timestamp = gmdate("D, d M Y H:i:s") . " GMT";
+//header("Expires: $timestamp");
+//header("Last-Modified: $timestamp");
+//header("Pragma: no-cache");
+//header("Cache-Control: no-cache, must-revalidate");
 
 // set the content type to be an image
 header("Content-type: image/svg+xml");
