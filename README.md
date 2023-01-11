@@ -108,7 +108,7 @@
   <summary><h2><img width="35" src="https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" align="top"> Contacts <img width="35" src="https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" align="top"></h2></summary>
   
   <p><img align="center" height=16px src="https://user-images.githubusercontent.com/93138565/204414651-1d3ba17f-da7e-4183-8ca3-2f8a1455ba71.png"> Email: <a href="mailto:marco.antolini2001@gmail.com"><b>marco.antolini2001@gmail.com</b></a></p>
-  <p><img align="center" height=16px src="https://user-images.githubusercontent.com/93138565/204414649-7c90f056-0acc-418d-9cbd-539d95c3be03.png"> Discord: <b>h4nto#6969</b></p>
+  <p><img align="center" height=16px src="https://user-images.githubusercontent.com/93138565/204414649-7c90f056-0acc-418d-9cbd-539d95c3be03.png"> Discord: <b>h4nto#9953</b></p>
 
 </details>
 
