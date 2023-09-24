@@ -114,8 +114,14 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake.svg" />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake.svg?palette=github-light&color_snake=#38bdae&color_dots=#70a5fd,#8ab6ff,#a7c8ff,#598fe6,#3b76cc"
+      />
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#38bdae&color_dots=#70a5fd,#8ab6ff,#a7c8ff,#598fe6,#3b76cc"
+      />
     <img alt="github-snake" src="github-snake.svg" />
   </picture>
 </p>
