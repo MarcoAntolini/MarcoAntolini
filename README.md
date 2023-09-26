@@ -13,14 +13,24 @@
 
 <p align="center">
  <img
+  alt="Always learning new things!"
   src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6788F7&center=true&vCenter=true&width=435&lines=Always+learning+new+things!"
  />
 </p>
 
 <p align="center">
- <img src="https://komarev.com/ghpvc/?username=MarcoAntolini&style=flat&color=6788F7&label=Visitors" />
- <img src="https://img.shields.io/github/followers/MarcoAntolini?label=Followers&style=flat&color=6788F7" />
- <img src="https://custom-icon-badges.herokuapp.com/badge/dynamic/json?color=6788F7&label=Stars&style=flat&query=%24.stars&url=https://api.github-star-counter.workers.dev/user/MarcoAntolini" />
+ <img
+  alt="Visitors Badge"
+  src="https://komarev.com/ghpvc/?username=MarcoAntolini&style=flat&color=6788F7&label=Visitors"
+ />
+ <img
+  alt="Followers Badge"
+  src="https://img.shields.io/github/followers/MarcoAntolini?label=Followers&style=flat&color=6788F7"
+ />
+ <img
+  alt="Stars Badge"
+  src="https://custom-icon-badges.herokuapp.com/badge/dynamic/json?color=6788F7&label=Stars&style=flat&query=%24.stars&url=https://api.github-star-counter.workers.dev/user/MarcoAntolini"
+ />
 </p>
 
 <!-- My Github Stats -->
@@ -28,17 +38,9 @@
 <details align="center">
  <summary>
   <h2>
-   <img
-    width="55"
-    src="https://media.giphy.com/media/fng8OzU2DvO2NCGeLY/giphy.gif"
-    align="center"
-   />
-    Github Stats and Activity
-   <img
-    width="55"
-    src="https://media.giphy.com/media/fng8OzU2DvO2NCGeLY/giphy.gif"
-    align="center"
-   />
+   <img width="55" src="https://media.giphy.com/media/fng8OzU2DvO2NCGeLY/giphy.gif" align="center" />
+   Github Stats and Activity
+   <img width="55" src="https://media.giphy.com/media/fng8OzU2DvO2NCGeLY/giphy.gif" align="center" />
   </h2>
  </summary>
 
@@ -60,13 +62,11 @@
   />
  </p>
 
- <!--
-  <img alt="Marco Antolini's Activity Graph" src="https://activity-graph.herokuapp.com/graph?username=MarcoAntolini&theme=tokyo-night&hide_border=true"/>
--->
-
  <b>Note:</b>
- <i>Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.</i>
-
+ <i>
+  Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill
+  level.
+ </i>
 </details>
 
 <!-- My Favourite Tools -->
@@ -91,7 +91,10 @@
  <h3>👨‍💻 Programming and Markup Languages</h3>
 
  <p>
-  <img alt="MIPS Assembly" src="https://custom-icon-badges.demolab.com/badge/Assembly-525252.svg?logo=asm-hex&logoColor=white" />
+  <img
+   alt="MIPS Assembly"
+   src="https://custom-icon-badges.demolab.com/badge/Assembly-525252.svg?logo=asm-hex&logoColor=white"
+  />
   <img alt="Bash" src="https://img.shields.io/badge/Bash-121011.svg?logo=gnu-bash&logoColor=white" />
   <img alt="C" src="https://custom-icon-badges.demolab.com/badge/C-03599C.svg?logo=c-in-hexagon&logoColor=white" />
   <img alt="C++" src="https://custom-icon-badges.demolab.com/badge/C++-9C033A.svg?logo=cpp2&logoColor=white" />
@@ -115,9 +118,18 @@
   <img alt="Arduino" src="https://img.shields.io/badge/-Arduino-00979D?logo=Arduino&logoColor=white" />
   <img alt="Bootstrap" src="https://img.shields.io/badge/Bootstrap-7952B3.svg?logo=bootstrap&logoColor=white" />
   <img alt="Discord.py" src="https://custom-icon-badges.demolab.com/badge/Discord.py-0d1620.svg?logo=dpy" />
-  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-2671E5.svg?logo=github%20actions&logoColor=white" />
-  <img alt="JUnit" src="https://custom-icon-badges.demolab.com/badge/JUnit-25A162.svg?logo=check-circle&logoColor=white" />
-  <img alt="PHPUnit" src="https://custom-icon-badges.demolab.com/badge/PHPUnit-366488.svg?logo=test-tube&logoColor=white" />
+  <img
+   alt="GitHub Actions"
+   src="https://img.shields.io/badge/GitHub%20Actions-2671E5.svg?logo=github%20actions&logoColor=white"
+  />
+  <img
+   alt="JUnit"
+   src="https://custom-icon-badges.demolab.com/badge/JUnit-25A162.svg?logo=check-circle&logoColor=white"
+  />
+  <img
+   alt="PHPUnit"
+   src="https://custom-icon-badges.demolab.com/badge/PHPUnit-366488.svg?logo=test-tube&logoColor=white"
+  />
   <img alt="React" src="https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=%2361DAFB" />
  </p>
 
@@ -135,16 +147,31 @@
  <p>
   <img alt="Adobe" src="https://img.shields.io/badge/Adobe-FF0000.svg?logo=adobe&logoColor=white" />
   <img alt="Android" src="https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white" />
-  <img alt="Android Studio" src="https://img.shields.io/badge/Android%20Studio-008678.svg?logo=android-studio&logoColor=white" />
+  <img
+   alt="Android Studio"
+   src="https://img.shields.io/badge/Android%20Studio-008678.svg?logo=android-studio&logoColor=white"
+  />
   <img alt="Brave" src="https://img.shields.io/badge/-Brave-FB542B?logo=brave&logoColor=white" />
   <img alt="Discord" src="https://img.shields.io/badge/-Discord-5865F2.svg?logo=discord&logoColor=white" />
   <img alt="Git" src="https://img.shields.io/badge/Git-F05033.svg?logo=git&logoColor=white" />
-  <img alt="GitHub Desktop" src="https://img.shields.io/badge/GitHub%20Desktop-8034A9.svg?logo=github&logoColor=white" />
-  <img alt="Google Sheets" src="https://img.shields.io/badge/Sheets-34A853.svg?logo=google%20sheets&logoColor=white" />
+  <img
+   alt="GitHub Desktop"
+   src="https://img.shields.io/badge/GitHub%20Desktop-8034A9.svg?logo=github&logoColor=white"
+  />
+  <img
+   alt="Google Sheets"
+   src="https://img.shields.io/badge/Sheets-34A853.svg?logo=google%20sheets&logoColor=white"
+  />
   <img alt="OBS Studio" src="https://img.shields.io/badge/-OBS-302E31?logo=obs-studio&logoColor=white" />
   <img alt="Photopea" src="https://img.shields.io/badge/Photopea-18A497?logo=photopea&logoColor=white" />
-  <img alt="Stack Overflow" src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stack-overflow&logoColor=white" />
-  <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?logo=visual-studio-code&logoColor=white" />
+  <img
+   alt="Stack Overflow"
+   src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stack-overflow&logoColor=white"
+  />
+  <img
+   alt="Visual Studio Code"
+   src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?logo=visual-studio-code&logoColor=white"
+  />
  </p>
 </details>
 
@@ -189,13 +216,11 @@
  <picture>
   <source
    media="(prefers-color-scheme: light)"
-   srcset="
-    https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake.svg?palette=github-light&color_snake=#bf91f3&color_dots=#ebedf0,#4b84e6,#70a5fd,#8ebcff,#a6c8ff"
+   srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake.svg?palette=github-light&color_snake=#bf91f3&color_dots=#ebedf0,#4b84e6,#70a5fd,#8ebcff,#a6c8ff"
   />
   <source
    media="(prefers-color-scheme: dark)"
-   srcset="
-    https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#bf91f3&color_dots=#161b22,#0095ff,#0082ff,#006fe6,#005cc5"
+   srcset="https://raw.githubusercontent.com/MarcoAntolini/MarcoAntolini/output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#bf91f3&color_dots=#161b22,#0095ff,#0082ff,#006fe6,#005cc5"
   />
   <img alt="github-snake" src="github-snake.svg" />
  </picture>
