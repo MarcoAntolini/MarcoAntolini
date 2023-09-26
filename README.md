@@ -212,7 +212,7 @@
    height="16px"
    src="https://user-images.githubusercontent.com/93138565/204414651-1d3ba17f-da7e-4183-8ca3-2f8a1455ba71.png"
   />
-  Email: <a href="mailto:marco.antolini2001@gmail.com"><b>marco.antolini2001@gmail.com</b></a>
+  Email: <a href="mailto:marco.antolini2001@gmail.com"><b>marcoantolini.dev@gmail.com</b></a>
  </p>
  <p>
   <img
