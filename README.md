@@ -38,9 +38,13 @@
 <details align="center">
  <summary>
   <h2>
-   <img width="55" src="assets/stats.gif" align="center" />
+   <picture>
+    <img width="55" alt="stats" align="center" src="assets/stats.gif" />
+   </picture>
    Github Stats and Activity
-   <img width="55" src="assets/stats.gif" align="center" />
+   <picture>
+    <img width="55" alt="stats" align="center" src="assets/stats.gif" />
+   </picture>
   </h2>
  </summary>
 
@@ -74,17 +78,13 @@
 <details align="center">
  <summary>
   <h2>
-   <img
-    width="45"
-    src="assets/tools.gif"
-    align="center"
-   />
+   <picture>
+    <img width="45" alt="tools" align="center" src="assets/tools.gif" />
+   </picture>
    My Favorite Tools
-   <img
-    width="45"
-    src="assets/tools.gif"
-    align="center"
-   />
+   <picture>
+    <img width="45" alt="tools" align="center" src="assets/tools.gif" />
+   </picture>
   </h2>
  </summary>
 
