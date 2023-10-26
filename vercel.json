@@ -1,0 +1,8 @@
+{
+	"rewrites": [
+		{
+			"source": "/next-app-template",
+			"destination": "https://next-app-template-phi.vercel.app/"
+		}
+	]
+}
