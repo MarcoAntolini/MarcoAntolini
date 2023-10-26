@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 export default function Home() {
-	return (
+	return (	
 		<main className="flex min-h-screen flex-col items-center p-32 gap-16">
 			<h1 className="font-extrabold text-5xl">Marco Antolini personal website</h1>
 			<ProgressBar />
