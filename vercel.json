@@ -1,0 +1,14 @@
+{
+	"rewrites": [
+		{
+			"source": "/next-app-template",
+			"destination": "/next-app-template"
+		}
+	],
+	"redirects": [
+		{
+			"source": "/next-app-template",
+			"destination": "/next-app-template"
+		}
+	]
+}
