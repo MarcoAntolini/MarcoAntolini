@@ -2,13 +2,13 @@
 	"rewrites": [
 		{
 			"source": "/next-app-template",
-			"destination": "/next-app-template"
+			"destination": "/next-app-template-phi.vercel.app"
 		}
 	],
 	"redirects": [
 		{
 			"source": "/next-app-template",
-			"destination": "/next-app-template"
+			"destination": "/next-app-template-phi.vercel.app"
 		}
 	]
 }
