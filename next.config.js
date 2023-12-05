@@ -11,11 +11,11 @@ const nextConfig = {
 				destination: "https://next-app-template-phi.vercel.app/:path*",
 			},
 			{
-				source: "/dso-database",
+				source: "/dracania-archives",
 				destination: "https://dso-database-dun.vercel.app",
 			},
 			{
-				source: "/dso-database/:path*",
+				source: "/dracania-archives/:path*",
 				destination: "https://dso-database-dun.vercel.app/:path*",
 			},
 		];
