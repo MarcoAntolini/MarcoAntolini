@@ -1,36 +1,46 @@
 {
-  "name": "marcoantolini",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.6"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "^3",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.6"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "trailingComma": "all",
-    "semi": true,
-    "singleQuote": false,
-    "printWidth": 120,
-    "tabWidth": 2,
-    "useTabs": true
-  }
+	"name": "marcoantolini",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"next": "^14.0.5-canary.7",
+		"react": "^18",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@react-email/components": "^0.0.7",
+		"@react-email/tailwind": "^0.0.8",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@types/react-vertical-timeline-component": "^3.3.3",
+		"autoprefixer": "^10",
+		"clsx": "^1.2.1",
+		"eslint": "^8",
+		"eslint-config-next": "13.5.6",
+		"framer-motion": "^10.12.17",
+		"postcss": "^8",
+		"react-hot-toast": "^2.4.1",
+		"react-icons": "^4.10.1",
+		"react-intersection-observer": "^9.5.2",
+		"react-vertical-timeline-component": "^3.6.0",
+		"resend": "^0.16.0",
+		"tailwindcss": "^3",
+		"typescript": "^5"
+	},
+	"prettier": {
+		"arrowParens": "always",
+		"trailingComma": "all",
+		"semi": true,
+		"singleQuote": false,
+		"printWidth": 120,
+		"tabWidth": 2,
+		"useTabs": true
+	}
 }

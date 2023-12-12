@@ -12,13 +12,21 @@ const nextConfig = {
 			},
 			{
 				source: "/dracania-archives",
-				destination: "https://dso-database-dun.vercel.app",
+				destination: "https://dracania-archives.com",
 			},
 			{
 				source: "/dracania-archives/:path*",
-				destination: "https://dso-database-dun.vercel.app/:path*",
+				destination: "https://dracania-archives.com/:path*",
 			},
 		];
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "github.com",
+			},
+		],
 	},
 };
 
