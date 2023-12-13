@@ -55,6 +55,7 @@ export const projectsData = [
 		description: "A simple website for a fictional travel agency built with Python and Flask.",
 		tags: ["Python", "Flask", "SQL"],
 		imageUrl: flyawayImg,
+		link: "https://github.com/MarcoAntolini/FlyAway",
 	},
 	{
 		title: "Dracania Archives",
@@ -62,6 +63,7 @@ export const projectsData = [
 			"A web app for the online game Drakensang Online that consists of a database of items in the game with few more tools.",
 		tags: ["React", "Next.js", "Tailwind"],
 		imageUrl: dracaniaArchivesImg,
+		link: "https://dracania-archives.com",
 	},
 ] as const;
 

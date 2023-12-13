@@ -27,7 +27,7 @@ export default function Intro() {
 					>
 						<Image
 							src="https://github.com/MarcoAntolini.png"
-							alt="Ricardo portrait"
+							alt="Marco Antolini portrait"
 							width="192"
 							height="192"
 							quality="95"
