@@ -1,4 +1,5 @@
 import dracaniaArchivesImg from "@/public/dracania-archives.png";
+import escapeFromUniversityImg from "@/public/escape-from-university.png";
 import flyawayImg from "@/public/flyaway.png";
 import React from "react";
 import { BsCalendar3 } from "react-icons/bs";
@@ -51,6 +52,13 @@ export const experiencesData = [
 
 export const projectsData = [
 	{
+		title: "Escape from University",
+		description: "A 2D run&gun and triva game.",
+		tags: ["Java"],
+		imageUrl: escapeFromUniversityImg,
+		link: "https://github.com/MarcoAntolini/EscapeFromUniversity",
+	},
+	{
 		title: "Fly Away",
 		description: "A simple website for a fictional travel agency built with Python and Flask.",
 		tags: ["Python", "Flask", "SQL"],
@@ -75,21 +83,22 @@ export const skillsData = [
 	"React",
 	"Next.js",
 	"Node.js",
-	"Git",
 	"Tailwind",
 	"Prisma",
-	"MongoDB",
 	"Express",
+	"PHP",
 	"Python",
+	"Flask",
 	"Django",
+	"Git",
 	"Java",
-	"MySQL",
 	"C#",
 	"C/C++",
-	"PHP",
 	"Dart",
 	"Flutter",
 	"Kotlin",
+	"MySQL",
+	"MongoDB",
 	"Arduino",
 	"Assembler",
 ] as const;
