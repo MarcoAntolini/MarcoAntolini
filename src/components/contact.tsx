@@ -3,12 +3,14 @@
 import { sendEmail } from "@/actions/sendEmail";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import SectionHeading from "./section-heading";
 import SubmitBtn from "./submit-btn";
 
 export default function Contact() {
 	const { ref } = useSectionInView("Contact");
+	const [formValues, setFormValues] = useState({ senderEmail: "", message: "" });
 
 	return (
 		<motion.section
@@ -41,30 +43,33 @@ export default function Contact() {
 			<form
 				className="mt-10 flex flex-col dark:text-black"
 				action={async (formData) => {
-					const { data, error } = await sendEmail(formData);
-
+					const { error } = await sendEmail(formData);
 					if (error) {
 						toast.error(error);
 						return;
 					}
-
 					toast.success("Email sent successfully!");
+					setFormValues({ senderEmail: "", message: "" });
 				}}
 			>
 				<input
 					className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
 					name="senderEmail"
 					type="email"
+					placeholder="Your email"
 					required
 					maxLength={500}
-					placeholder="Your email"
+					value={formValues.senderEmail}
+					onChange={(e) => setFormValues({ ...formValues, senderEmail: e.target.value })}
 				/>
 				<textarea
-					className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+					className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none resize-none"
 					name="message"
 					placeholder="Your message"
 					required
 					maxLength={5000}
+					value={formValues.message}
+					onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
 				/>
 				<SubmitBtn />
 			</form>
