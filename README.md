@@ -55,15 +55,6 @@
 
 ## 📊 GitHub Stats
 
-<p align="center">
- <img
-  src="https://streak-stats.demolab.com/?
-  user=MarcoAntolini&theme=tokyonight&
-  hide_border=true"
-  alt="GitHub Streak"
- />
-</p>
-
 <!-- Contribution Snake -->
 <p align="center">
  <picture>
