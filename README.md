@@ -1,5 +1,5 @@
 <!-- Header -->
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:0ea5e9&height=220&section=header&text=Marco%20Antolini&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20%26%20Mobile%20Developer&descAlignY=60&descSize=22&descColor=94a3b8)
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0%3A0f172a%2C100%3A0ea5e9&height=200&section=header&text=Marco%20Antolini&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
 
 <!-- Typing SVG -->
 <p align="center">
@@ -27,14 +27,14 @@
 ## 🚀 Featured Projects
 
 <p align="center">
+ <a href="https://github.com/MarcoAntolini/ts-hover-prettify">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=ts-hover-prettify&theme=tokyonight&hide_border=true" alt="ts-hover-prettify" />
+ </a>
+ <a href="https://github.com/MarcoAntolini/dracania-archives">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=dracania-archives&theme=tokyonight&hide_border=true" alt="dracania-archives" />
+ </a>
  <a href="https://github.com/MarcoAntolini/GymDashboard">
   <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=GymDashboard&theme=tokyonight&hide_border=true" alt="GymDashboard" />
- </a>
- <a href="https://github.com/MarcoAntolini/Smart-Bridge-IOT">
-  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=Smart-Bridge-IOT&theme=tokyonight&hide_border=true" alt="Smart-Bridge-IOT" />
- </a>
- <a href="https://github.com/MarcoAntolini/SchoolBuddy">
-  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=SchoolBuddy&theme=tokyonight&hide_border=true" alt="SchoolBuddy" />
  </a>
 </p>
 
@@ -60,11 +60,11 @@
 </p>
 <p align="center">
  <img
-  src="https://github-readme-stats.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"
+  src="https://github-readme-stats-fast.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"
   alt="GitHub Stats"
  />
  <img
-  src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&layout=compact&theme=tokyonight&hide_border=true&langs_count=8"
+  src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&layout=compact&theme=tokyonight&hide_border=true&langs_count=8"
   alt="Top Languages"
  />
 </p>
@@ -102,4 +102,4 @@
 </p>
 
 <!-- Footer -->
-![footer](https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:0f172a&height=120&section=footer)
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0%3A0ea5e9%2C100%3A0f172a&height=120&section=footer" />
