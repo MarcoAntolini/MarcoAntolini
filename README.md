@@ -33,6 +33,9 @@
  <a href="https://github.com/MarcoAntolini/dracania-archives">
   <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=dracania-archives&theme=tokyonight&hide_border=true" alt="dracania-archives" />
  </a>
+ <a href="https://github.com/MarcoAntolini/SchoolBuddy">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=SchoolBuddy&theme=tokyonight&hide_border=true" alt="SchoolBuddy" />
+ </a>
  <a href="https://github.com/MarcoAntolini/GymDashboard">
   <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=GymDashboard&theme=tokyonight&hide_border=true" alt="GymDashboard" />
  </a>
@@ -54,22 +57,11 @@
 
 <p align="center">
  <img
-  src="https://streak-stats.demolab.com/?user=MarcoAntolini&theme=tokyonight&hide_border=true"
+  src="https://streak-stats.demolab.com/?
+  user=MarcoAntolini&theme=tokyonight&
+  hide_border=true"
   alt="GitHub Streak"
  />
-</p>
-<p align="center">
- <img
-  src="https://github-readme-stats-fast.vercel.app/api?username=MarcoAntolini&count_private=true&show_icons=true&theme=tokyonight&hide_border=true"
-  alt="GitHub Stats"
- />
- <img
-  src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=MarcoAntolini&count_private=true&layout=compact&theme=tokyonight&hide_border=true&langs_count=8"
-  alt="Top Languages"
- />
-</p>
-<p align="center">
- <sub><i>Top languages reflects public repo composition, not skill level.</i></sub>
 </p>
 
 <!-- Contribution Snake -->
@@ -85,7 +77,7 @@
 
 <p align="center">
  <a href="https://www.linkedin.com/in/marcoantolinidev/">
-  <img src="https://img.shields.io/badge/LinkedIn-0ea5e9?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  <img src="https://img.shields.io/badge/LinkedIn-0f172a?style=for-the-badge&logo=linkedin&logoColor=0ea5e9" alt="LinkedIn" />
  </a>
  &nbsp;
  <a href="https://marcoantolini.com">
@@ -93,7 +85,7 @@
  </a>
  &nbsp;
  <a href="mailto:marcoantolini.dev@gmail.com">
-  <img src="https://img.shields.io/badge/Email-0ea5e9?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  <img src="https://img.shields.io/badge/Email-0f172a?style=for-the-badge&logo=gmail&logoColor=0ea5e9" alt="Email" />
  </a>
 </p>
 
