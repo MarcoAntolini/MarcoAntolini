@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="CssHub">
+  <rect width="800" height="500" fill="#1a0a2e"/>
+  <text x="48" y="140" fill="#e879f9" font-family="ui-monospace,monospace" font-size="44" font-weight="700">CssHub</text>
+  <text x="48" y="190" fill="#c4b5fd" font-family="ui-monospace,monospace" font-size="20">Chrome extension &#183; CSSBattle</text>
+</svg>

@@ -1,0 +1,24 @@
+---
+import ConceptLayout from "@/layouts/ConceptLayout.astro";
+import ConceptNav from "@/components/concepts/concept-nav";
+import ConceptPortfolio from "@/components/concepts/concept-portfolio";
+import { concepts, getConceptBySlug } from "@/content/concepts";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+	return concepts.map((concept) => ({ params: { slug: concept.slug } }));
+}
+
+const { slug } = Astro.params;
+const concept = getConceptBySlug(slug!);
+
+if (!concept) {
+	return Astro.redirect("/concepts");
+}
+---
+
+<ConceptLayout title={`${concept.name} — Portfolio concept`} description={concept.tagline}>
+	<ConceptPortfolio client:load slug={slug!} />
+	<ConceptNav client:load concept={concept} />
+</ConceptLayout>

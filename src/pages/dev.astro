@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import {
+	contactDevMode,
+	isDevelopment,
+	rateLimitEnabled,
+	shouldLogContactInsteadOfSend,
+	turnstileSiteKey,
+} from "@/lib/contact/config";
+
+if (!import.meta.env.DEV) {
+	return Astro.redirect("/");
+}
+
+const checks = [
+	{ name: "PUBLIC_APP_ENV", ok: import.meta.env.PUBLIC_APP_ENV === "development" },
+	{ name: "RESEND_API_KEY", ok: Boolean(import.meta.env.RESEND_API_KEY) },
+	{ name: "Turnstile site key", ok: Boolean(turnstileSiteKey) },
+	{ name: "Turnstile secret", ok: Boolean(import.meta.env.TURNSTILE_SECRET_KEY) },
+	{
+		name: "Upstash URL",
+		ok: Boolean(import.meta.env.UPSTASH_REDIS_REST_URL && import.meta.env.UPSTASH_REDIS_REST_TOKEN),
+	},
+];
+---
+
+<BaseLayout title="Development dashboard">
+	<main class="mx-auto max-w-3xl px-4 py-12 text-zinc-100">
+		<h1 class="font-display text-3xl font-semibold">Development dashboard</h1>
+		<p class="mt-4 text-zinc-400">Local-only route. Not available in production builds.</p>
+
+		<section class="mt-10">
+			<h2 class="text-xl font-semibold">Environment</h2>
+			<ul class="mt-4 space-y-2">
+				{
+					checks.map((check) => (
+						<li class="flex justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
+							<span>{check.name}</span>
+							<span class={check.ok ? "text-emerald-400" : "text-amber-400"}>{check.ok ? "OK" : "Missing"}</span>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-xl font-semibold">Contact test mode</h2>
+			<ul class="mt-4 list-disc space-y-2 pl-5 text-zinc-400">
+				<li>Development mode: {isDevelopment ? "yes" : "no"}</li>
+				<li>CONTACT_DEV_MODE: {contactDevMode}</li>
+				<li>Log instead of send: {shouldLogContactInsteadOfSend ? "yes" : "no"}</li>
+				<li>Rate limiting: {rateLimitEnabled ? "enabled" : "disabled"}</li>
+			</ul>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-xl font-semibold">Routes</h2>
+			<ul class="mt-4 flex flex-wrap gap-2">
+				<li>
+					<a href="/" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">Home</a>
+				</li>
+				<li>
+					<a href="/work/dracania-archives" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">
+						Case study
+					</a>
+				</li>
+				<li>
+					<a href="/#contact" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">
+						Test contact
+					</a>
+				</li>
+				<li>
+					<a href="/concepts" class="rounded-md border border-emerald-700/50 bg-emerald-950/30 px-3 py-2 text-sm hover:border-emerald-500/50">
+						Portfolio concepts (10)
+					</a>
+				</li>
+			</ul>
+		</section>
+	</main>
+</BaseLayout>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="ts-hover-prettify">
+  <rect width="800" height="500" fill="#1e3a8a"/>
+  <text x="48" y="130" fill="#93c5fd" font-family="ui-monospace,monospace" font-size="36" font-weight="700">ts-hover-prettify</text>
+  <text x="48" y="180" fill="#bfdbfe" font-family="ui-monospace,monospace" font-size="18">VS Code extension</text>
+</svg>

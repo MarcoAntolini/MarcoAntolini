@@ -1,20 +1,36 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-	content: [
-		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-	],
+	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
-			backgroundImage: {
-				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-				"gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+			fontFamily: {
+				display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+				body: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+				mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
+			},
+			colors: {
+				craft: {
+					bg: "rgb(var(--color-bg) / <alpha-value>)",
+					surface: "rgb(var(--color-surface) / <alpha-value>)",
+					border: "rgb(var(--color-border) / <alpha-value>)",
+					foreground: "rgb(var(--color-foreground) / <alpha-value>)",
+					muted: "rgb(var(--color-muted) / <alpha-value>)",
+					accent: "rgb(var(--color-accent) / <alpha-value>)",
+				},
+			},
+			animation: {
+				"fade-up": "fade-up 0.7s ease-out forwards",
+			},
+			keyframes: {
+				"fade-up": {
+					"0%": { opacity: "0", transform: "translateY(16px)" },
+					"100%": { opacity: "1", transform: "translateY(0)" },
+				},
 			},
 		},
 	},
 	plugins: [],
-	darkMode: "class",
 };
+
 export default config;

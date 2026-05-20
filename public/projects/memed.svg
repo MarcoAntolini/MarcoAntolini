@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Memed">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="48" y="140" fill="#38bdf8" font-family="ui-monospace,monospace" font-size="44" font-weight="700">Memed</text>
+  <text x="48" y="190" fill="#94a3b8" font-family="ui-monospace,monospace" font-size="20">React &#183; TypeScript</text>
+</svg>
