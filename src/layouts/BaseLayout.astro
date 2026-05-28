@@ -8,12 +8,13 @@ import "@/styles/global.css";
 export interface Props {
 	title?: string;
 	description?: string;
+	noindex?: boolean;
 }
 
 const defaultTitle = `${profile.name} — Frontend & mobile engineer`;
 const defaultDescription = profile.heroLine;
 
-const { title = defaultTitle, description = defaultDescription } = Astro.props;
+const { title = defaultTitle, description = defaultDescription, noindex = false } = Astro.props;
 const canonicalUrl = absoluteUrl(Astro.url.pathname === "/" ? "/" : Astro.url.pathname);
 const jsonLd = JSON.stringify(personJsonLd());
 ---
@@ -26,6 +27,7 @@ const jsonLd = JSON.stringify(personJsonLd());
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<link rel="canonical" href={canonicalUrl} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en_US" />

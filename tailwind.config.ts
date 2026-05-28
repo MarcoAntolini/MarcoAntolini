@@ -8,6 +8,8 @@ const config: Config = {
 				display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
 				body: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
 				mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
+				satoshi: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+				"space-mono": ["var(--font-space-mono)", "ui-monospace", "monospace"],
 			},
 			colors: {
 				craft: {
@@ -17,6 +19,29 @@ const config: Config = {
 					foreground: "rgb(var(--color-foreground) / <alpha-value>)",
 					muted: "rgb(var(--color-muted) / <alpha-value>)",
 					accent: "rgb(var(--color-accent) / <alpha-value>)",
+				},
+				// v2 identity palette — sourced from the MA brand kit (brandkit.png)
+				v2: {
+					obsidian: "#09090b",
+					zinc: "#18181b",
+					border: "#27272a",
+					ivory: "#f4f1eb",
+					muted: "#a1a1aa",
+					emerald: "#34d399",
+					teal: "#0f766e",
+					amber: "#f59e0b",
+				},
+				// brand identity palette — MA brand kit (brandkit.png). Shared, version-agnostic.
+				brand: {
+					obsidian: "#09090b",
+					zinc: "#18181b",
+					elevated: "#1f1f23",
+					border: "#27272a",
+					ivory: "#f4f1eb",
+					muted: "#a1a1aa",
+					emerald: "#34d399",
+					teal: "#0f766e",
+					amber: "#f59e0b",
 				},
 			},
 			animation: {

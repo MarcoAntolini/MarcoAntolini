@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackground from "@/components/portfolio/ambient-background.astro";
+import SiteFooter from "@/components/portfolio/site-footer.astro";
+import SiteHeader from "@/components/portfolio/site-header";
+import Hero from "@/components/portfolio/hero";
+import ProofBar from "@/components/portfolio/proof-bar";
+import ProjectIconsStrip from "@/components/portfolio/project-icons-strip";
+import WorkSection from "@/components/portfolio/work-section";
+import ExperienceSection from "@/components/portfolio/experience-section";
+import SkillsSection from "@/components/portfolio/skills-section";
+import AboutSection from "@/components/portfolio/about-section";
+import ContactForm from "@/components/contact-form";
+import CursorGlow from "@/components/portfolio/cursor-glow";
+import ScrollProgress from "@/components/portfolio/scroll-progress";
+
+const pathname = Astro.url.pathname;
+---
+
+<BaseLayout noindex>
+	<AmbientBackground />
+	<CursorGlow client:load />
+	<ScrollProgress client:load />
+	<SiteHeader client:load pathname={pathname} />
+	<div class="relative mx-auto max-w-6xl px-4">
+		<Hero client:load />
+	</div>
+	<ProofBar client:visible />
+	<ProjectIconsStrip client:visible />
+	<main class="relative mx-auto max-w-6xl px-4">
+		<WorkSection client:visible />
+		<ExperienceSection client:visible />
+		<SkillsSection client:visible />
+		<AboutSection client:visible />
+		<div class="scroll-mt-28 py-20 sm:py-28">
+			<ContactForm client:load variant="craft" />
+		</div>
+	</main>
+	<SiteFooter />
+</BaseLayout>

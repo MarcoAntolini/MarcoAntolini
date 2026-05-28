@@ -1,9 +1,9 @@
 "use client";
 
-import { Reveal } from "@/components/portfolio/motion";
 import { profile } from "@/content/profile";
 import { turnstileSiteKey } from "@/lib/contact/client";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { motion, useReducedMotion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
@@ -20,6 +20,7 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [showTurnstile, setShowTurnstile] = useState(false);
 	const sectionRef = useRef<HTMLElement>(null);
+	const reduceMotion = useReducedMotion();
 
 	useEffect(() => {
 		setFormLoadedAt(String(Date.now()));
@@ -45,6 +46,23 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 
 	const isCraft = variant === "craft" || variant === "dark";
 	const isDark = isCraft;
+	const isRevealed = showTurnstile || !isCraft || reduceMotion;
+
+	function revealMotionProps(delay = 0) {
+		if (reduceMotion) {
+			return {
+				initial: false as const,
+				animate: { opacity: 1, y: 0 },
+				transition: { duration: 0 },
+			};
+		}
+
+		return {
+			initial: { opacity: 0, y: 24 },
+			animate: isRevealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
+			transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+		};
+	}
 
 	const inputClass = isCraft
 		? "bg-zinc-950/60 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:outline-emerald-500"
@@ -82,7 +100,7 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 	const content = (
 		<>
 			{variant === "craft" ? (
-				<Reveal>
+				<motion.div {...revealMotionProps()}>
 					<p className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-400/90">Contact</p>
 					<h2
 						id="contact-heading"
@@ -93,7 +111,7 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 					<p className={`mt-4 max-w-lg text-lg ${mutedClass}`}>
 						{profile.availability} Drop a line or reach out on LinkedIn — I reply to every serious inquiry.
 					</p>
-				</Reveal>
+				</motion.div>
 			) : (
 				<>
 					<h2 id="contact-heading" className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -116,7 +134,7 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 
 			<div className={variant === "craft" ? "mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16" : ""}>
 				{variant === "craft" ? (
-					<Reveal delay={0.1} className="space-y-4">
+					<motion.div {...revealMotionProps(0.1)} className="space-y-4">
 						<a
 							href={`mailto:${profile.email}`}
 							className="glass-panel flex items-center gap-3 rounded-xl px-5 py-4 text-zinc-300 transition hover:border-emerald-500/40 hover:text-emerald-300 motion-reduce:transition-none"
@@ -133,10 +151,10 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 							<Linkedin className="h-5 w-5 text-emerald-400" />
 							<span className="text-sm">LinkedIn profile</span>
 						</a>
-					</Reveal>
+					</motion.div>
 				) : null}
 
-				<Reveal delay={variant === "craft" ? 0.15 : 0}>
+				<motion.div {...revealMotionProps(variant === "craft" ? 0.15 : 0)}>
 					<form
 						action={handleSubmit}
 						className={`flex flex-col gap-4 ${variant === "craft" ? "glass-panel rounded-2xl p-6 sm:p-8" : "mt-8 max-w-xl"}`}
@@ -212,7 +230,7 @@ export default function ContactForm({ className = "", variant = "craft" }: Conta
 							{statusMessage}
 						</p>
 					</form>
-				</Reveal>
+				</motion.div>
 			</div>
 		</>
 	);

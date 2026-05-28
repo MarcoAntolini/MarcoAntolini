@@ -1,10 +1,15 @@
 import type { APIRoute } from "astro";
+import { caseStudySlugs } from "@/content/case-studies";
 import { absoluteUrl } from "@/lib/seo";
 
 export const GET: APIRoute = () => {
 	const routes = [
 		{ path: "/", changeFrequency: "weekly", priority: "1.0" },
-		{ path: "/work/dracania-archives", changeFrequency: "monthly", priority: "0.8" },
+		...caseStudySlugs.map((slug) => ({
+			path: `/work/${slug}`,
+			changeFrequency: "monthly" as const,
+			priority: "0.8",
+		})),
 		{ path: "/resume", changeFrequency: "monthly", priority: "0.8" },
 	];
 

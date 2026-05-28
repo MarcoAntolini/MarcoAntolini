@@ -14,16 +14,17 @@ function scrollToTop(smooth: boolean) {
 }
 
 const navItems = [
-	{ href: "/#work", label: "Work" },
-	{ href: "/#experience", label: "Experience" },
-	{ href: "/#skills", label: "Skills" },
-	{ href: "/#about", label: "About" },
-	{ href: "/#contact", label: "Contact" },
+	{ href: "/#work", label: "Work", sectionId: "work" },
+	{ href: "/#experience", label: "Experience", sectionId: "experience" },
+	{ href: "/#skills", label: "Skills", sectionId: "skills" },
+	{ href: "/#about", label: "About", sectionId: "about" },
+	{ href: "/#contact", label: "Contact", sectionId: "contact" },
 ];
 
 export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [activeSection, setActiveSection] = useState<string | null>(null);
 	const reduceMotion = useReducedMotion();
 	const isHome = pathname === "/";
 
@@ -44,6 +45,57 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
+
+	useEffect(() => {
+		if (!isHome) {
+			setActiveSection(null);
+			return;
+		}
+
+		const topResetThreshold = 80;
+		const activationOffset = 160;
+		let frame = 0;
+
+		const updateActiveSection = () => {
+			const scrollY = window.scrollY;
+			if (scrollY < topResetThreshold) {
+				setActiveSection((prev) => (prev === null ? prev : null));
+				return;
+			}
+
+			let current: string | null = null;
+			for (const item of navItems) {
+				const section = document.getElementById(item.sectionId);
+				if (!section) continue;
+
+				const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+				if (scrollY + activationOffset >= sectionTop) {
+					current = item.sectionId;
+				}
+			}
+
+			setActiveSection((prev) => (prev === current ? prev : current));
+		};
+
+		const requestUpdate = () => {
+			if (frame) return;
+			frame = window.requestAnimationFrame(() => {
+				frame = 0;
+				updateActiveSection();
+			});
+		};
+
+		updateActiveSection();
+		window.addEventListener("scroll", requestUpdate, { passive: true });
+		window.addEventListener("resize", requestUpdate);
+		window.addEventListener("hashchange", requestUpdate);
+		return () => {
+			window.removeEventListener("scroll", requestUpdate);
+			window.removeEventListener("resize", requestUpdate);
+			window.removeEventListener("hashchange", requestUpdate);
+			if (frame) window.cancelAnimationFrame(frame);
+		};
+	}, [isHome]);
 
 	useEffect(() => {
 		document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -68,21 +120,37 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 					href="/"
 					onClick={handleLogoClick}
 					aria-label={isHome ? "Scroll to top" : `Back to ${profile.name}`}
-					className="font-display text-sm font-semibold tracking-tight whitespace-nowrap text-zinc-100 transition-colors duration-200 hover:text-emerald-400 motion-reduce:transition-none sm:text-base"
+					className="group font-display text-sm font-semibold tracking-tight whitespace-nowrap text-zinc-100 transition-colors duration-200 hover:text-emerald-400 motion-reduce:transition-none sm:text-base"
 				>
-					{profile.name}
+					<span className="relative">
+						{profile.name.split(" ")[0]}
+						<span className="absolute -bottom-0.5 left-0 h-px w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full motion-reduce:transition-none" />
+					</span>
 				</a>
 
 				<nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-					{navItems.map((item) => (
-						<a
-							key={item.href}
-							href={item.href}
-							className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:bg-zinc-800/60 hover:text-emerald-300 motion-reduce:transition-none"
-						>
-							{item.label}
-						</a>
-					))}
+					{navItems.map((item) => {
+						const isActive = isHome && activeSection === item.sectionId;
+
+						return (
+							<a
+								key={item.href}
+								href={item.href}
+								className={`relative rounded-lg px-3 py-2 text-sm transition motion-reduce:transition-none ${
+									isActive ? "text-emerald-300" : "text-zinc-400 hover:bg-zinc-800/60 hover:text-emerald-300"
+								}`}
+							>
+								{item.label}
+								{isActive ? (
+									<motion.span
+										layoutId="nav-active"
+										className="absolute inset-x-2 -bottom-0.5 h-px bg-emerald-400"
+										transition={{ type: "spring", stiffness: 380, damping: 32 }}
+									/>
+								) : null}
+							</a>
+						);
+					})}
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
@@ -93,12 +161,14 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 					>
 						CV
 					</a>
-					<a
+					<motion.a
 						href={isHome ? "#contact" : "/#contact"}
 						className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400 motion-reduce:transition-none"
+						whileHover={reduceMotion ? undefined : { scale: 1.03 }}
+						whileTap={reduceMotion ? undefined : { scale: 0.98 }}
 					>
 						Hire me
-					</a>
+					</motion.a>
 				</div>
 
 				<button
@@ -114,10 +184,13 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 			</motion.div>
 
 			{menuOpen ? (
-				<nav
+				<motion.nav
 					id="mobile-nav"
 					className="mx-auto mt-2 max-w-6xl rounded-2xl border border-zinc-800 bg-zinc-950/95 p-4 backdrop-blur-xl md:hidden"
 					aria-label="Mobile"
+					initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.25 }}
 				>
 					<ul className="flex flex-col gap-1">
 						{navItems.map((item) => (
@@ -141,7 +214,7 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 							</a>
 						</li>
 					</ul>
-				</nav>
+				</motion.nav>
 			) : null}
 		</header>
 	);

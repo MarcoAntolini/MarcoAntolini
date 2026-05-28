@@ -50,15 +50,18 @@ body {
 
 @layer utilities {
 	.text-gradient {
-		@apply bg-gradient-to-r from-emerald-300 via-teal-200 to-cyan-300 bg-clip-text text-transparent;
-		line-height: 1.2;
-		padding-bottom: 0.12em;
-		-webkit-box-decoration-break: clone;
-		box-decoration-break: clone;
+		@apply text-emerald-300;
 	}
 
 	.glass-panel {
 		@apply border border-zinc-800/80 bg-zinc-900/40 shadow-xl shadow-black/20 backdrop-blur-md;
+	}
+
+	.shimmer-border {
+		background:
+			linear-gradient(rgb(9 9 11), rgb(9 9 11)) padding-box,
+			linear-gradient(120deg, rgb(52 211 153 / 0.15), rgb(52 211 153 / 0.55), rgb(45 212 191 / 0.15)) border-box;
+		border: 1px solid transparent;
 	}
 
 	.grid-bg {
@@ -97,10 +100,52 @@ body {
 	}
 }
 
+@keyframes scroll-cue {
+	0%,
+	100% {
+		transform: translateY(0);
+		opacity: 0.5;
+	}
+	50% {
+		transform: translateY(6px);
+		opacity: 1;
+	}
+}
+
+@keyframes orbit-ring {
+	0% {
+		background: conic-gradient(from 0deg, transparent, rgb(52 211 153 / 0.5), transparent 35%);
+	}
+	100% {
+		background: conic-gradient(from 360deg, transparent, rgb(52 211 153 / 0.5), transparent 35%);
+	}
+}
+
+@keyframes shimmer-slide {
+	0% {
+		transform: translateX(-120%);
+	}
+	100% {
+		transform: translateX(120%);
+	}
+}
+
 .animate-float-slow {
 	animation: float-slow 18s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
 	animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.animate-scroll-cue {
+	animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+.animate-orbit-ring {
+	animation: orbit-ring 4s linear infinite;
+}
+
+.animate-shimmer-slide {
+	animation: shimmer-slide 2.8s ease-in-out infinite;
 }

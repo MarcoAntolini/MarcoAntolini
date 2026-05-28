@@ -6,7 +6,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
 	{
 		name: "Frontend & mobile",
-		skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter", "Dart", "HTML", "CSS"],
+		skills: ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS", "Flutter", "Dart", "HTML", "CSS"],
 	},
 	{
 		name: "Backend & data",
@@ -14,7 +14,7 @@ export const skillGroups: SkillGroup[] = [
 	},
 	{
 		name: "Tools & platforms",
-		skills: ["Git", "VS Code extensions", "Vercel", "REST APIs", "Arduino", "IoT"],
+		skills: ["Git", "Chrome extensions", "VS Code extensions", "Vercel", "REST APIs", "Arduino", "IoT"],
 	},
 	{
 		name: "Languages",

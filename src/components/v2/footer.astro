@@ -1,0 +1,81 @@
+---
+import { profile } from "@/content/profile";
+
+const year = new Date().getFullYear();
+const links = [
+	{ href: "#work", label: "Work" },
+	{ href: "#experience", label: "Experience" },
+	{ href: "#skills", label: "Skills" },
+	{ href: "#contact", label: "Contact" },
+];
+const socials = [
+	{ href: profile.github, label: "GitHub" },
+	{ href: profile.linkedin, label: "LinkedIn" },
+	{ href: `mailto:${profile.email}`, label: "Email" },
+];
+---
+
+<footer class="border-t border-v2-border">
+	<div class="mx-auto max-w-[1180px] px-5 py-14 sm:px-8">
+		<div class="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+			<div class="max-w-sm">
+				<div class="flex items-center gap-2.5">
+					<svg viewBox="0 0 60 40" fill="none" class="h-7 w-auto text-v2-ivory" aria-hidden="true">
+						<path d="M6 33 V7 L16 21 L26 7 V33" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+						<path d="M33 33 L43 7 L53 33" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+						<path d="M37.6 21 H48.4" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+						<path d="M41 13.5 L41 23 L43.1 20.9 L44.6 24 L46 23.4 L44.5 20.4 L47.4 20.4 Z" fill="#34d399" />
+					</svg>
+					<span class="font-satoshi text-sm font-medium tracking-tight text-v2-ivory">Marco Antolini</span>
+				</div>
+				<p class="mt-4 font-satoshi text-lg font-semibold tracking-tight text-v2-ivory">
+					Build polished. <span class="text-v2-emerald">Ship real.</span>
+				</p>
+				<p class="mt-2 font-space-mono text-[12px] text-v2-muted">{profile.signature}</p>
+			</div>
+
+			<div class="flex gap-12">
+				<nav aria-label="Footer">
+					<p class="v2-label">Index</p>
+					<ul class="mt-4 space-y-2.5">
+						{
+							links.map((link) => (
+								<li>
+									<a href={link.href} class="text-sm text-v2-muted transition-colors hover:text-v2-emerald">
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+				<div>
+					<p class="v2-label">Elsewhere</p>
+					<ul class="mt-4 space-y-2.5">
+						{
+							socials.map((social) => (
+								<li>
+									<a
+										href={social.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-sm text-v2-muted transition-colors hover:text-v2-emerald"
+									>
+										{social.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-12 flex flex-col gap-2 border-t border-v2-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+			<p class="font-space-mono text-[11px] text-v2-muted">© {year} Marco Antolini</p>
+			<a href="/v1" class="font-space-mono text-[11px] text-v2-muted transition-colors hover:text-v2-emerald">
+				Viewing v2 · compare with v1
+			</a>
+		</div>
+	</div>
+</footer>

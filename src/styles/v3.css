@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * v3 identity layer — premium dark developer/editorial system.
+ * Tokens trace directly to the MA brand kit (brandkit.png):
+ *   obsidian / zinc / soft ivory, single emerald accent, deep teal depth,
+ *   amber reserved strictly for live/status signals.
+ *   Satoshi for display, Space Mono for interface detail labels.
+ * Imported only by V3Layout, so v1 and v2 stay untouched.
+ */
+
+:root {
+	--font-satoshi: "Satoshi", system-ui, sans-serif;
+	--font-space-mono: "Space Mono", ui-monospace, monospace;
+
+	--brand-obsidian: 9 9 11;
+	--brand-zinc: 24 24 27;
+	--brand-elevated: 31 31 35;
+	--brand-border: 39 39 42;
+	--brand-ivory: 244 241 235;
+	--brand-muted: 161 161 170;
+	--brand-emerald: 52 211 153;
+	--brand-teal: 15 118 110;
+	--brand-amber: 245 158 11;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: rgb(var(--brand-obsidian));
+	color: rgb(var(--brand-ivory));
+	font-family: var(--font-satoshi);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+	outline: 2px solid rgb(var(--brand-emerald));
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+
+::selection {
+	background-color: rgb(var(--brand-emerald) / 0.26);
+	color: rgb(var(--brand-ivory));
+}
+
+@layer utilities {
+	.font-satoshi {
+		font-family: var(--font-satoshi);
+	}
+
+	.font-space-mono {
+		font-family: var(--font-space-mono);
+	}
+
+	/* Interface label — Space Mono, the brand detail face */
+	.v3-label {
+		font-family: var(--font-space-mono);
+		font-size: 11px;
+		line-height: 1;
+		letter-spacing: 0.24em;
+		text-transform: uppercase;
+		color: rgb(var(--brand-muted));
+	}
+
+	/* Blueprint drafting grid — masked so it reads as paper, not wallpaper */
+	.v3-grid {
+		background-image:
+			linear-gradient(to right, rgb(244 241 235 / 0.04) 1px, transparent 1px),
+			linear-gradient(to bottom, rgb(244 241 235 / 0.04) 1px, transparent 1px);
+		background-size: 60px 60px;
+	}
+
+	.v3-grid-fade {
+		-webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 14%, transparent 70%);
+		mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 14%, transparent 70%);
+	}
+
+	/* Machined "tray" surface — concentric hardware look from the brand kit */
+	.v3-surface {
+		border: 1px solid rgb(var(--brand-border));
+		background:
+			linear-gradient(180deg, rgb(244 241 235 / 0.02), transparent 40%),
+			rgb(var(--brand-zinc) / 0.7);
+		box-shadow:
+			inset 0 1px 0 rgb(244 241 235 / 0.05),
+			0 30px 70px -40px rgb(0 0 0 / 0.9);
+	}
+
+	.v3-surface-flat {
+		border: 1px solid rgb(var(--brand-border));
+		background-color: rgb(var(--brand-zinc) / 0.55);
+	}
+
+	/* Emerald hairline ring for focus/active framing */
+	.v3-ring-accent {
+		box-shadow: inset 0 0 0 1px rgb(var(--brand-emerald) / 0.2);
+	}
+
+	.v3-noise {
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+	}
+
+	/* Frosted panel for the contact form */
+	.v3-glass {
+		border: 1px solid rgb(var(--brand-border));
+		background-color: rgb(var(--brand-zinc) / 0.4);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+}
+
+/* Crosshair corner ticks — the "interface frame" motif (panels 02/08 of the kit) */
+.v3-corners {
+	position: relative;
+}
+.v3-corners::before,
+.v3-corners::after {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-color: rgb(var(--brand-emerald) / 0.5);
+	pointer-events: none;
+}
+.v3-corners::before {
+	top: -1px;
+	left: -1px;
+	border-top: 1px solid;
+	border-left: 1px solid;
+}
+.v3-corners::after {
+	bottom: -1px;
+	right: -1px;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+
+@keyframes v3-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes v3-pulse {
+	0%,
+	100% {
+		opacity: 0.45;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.9;
+		transform: scale(1.35);
+	}
+}
+
+.v3-animate-blink {
+	animation: v3-blink 1.6s steps(2, end) infinite;
+}
+
+.v3-animate-pulse {
+	animation: v3-pulse 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

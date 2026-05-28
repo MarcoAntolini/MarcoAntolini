@@ -1,0 +1,41 @@
+---
+import V3Layout from "@/layouts/V3Layout.astro";
+import V3Footer from "@/components/v3/footer.astro";
+import V3Header from "@/components/v3/header";
+import V3Hero from "@/components/v3/hero";
+import V3Proof from "@/components/v3/proof";
+import V3Work from "@/components/v3/work";
+import V3Projects from "@/components/v3/projects";
+import V3Experience from "@/components/v3/experience";
+import V3Skills from "@/components/v3/skills";
+import V3About from "@/components/v3/about";
+import V3Contact from "@/components/v3/contact";
+---
+
+<V3Layout title="Marco Antolini · Frontend & mobile engineer">
+	<span id="v3-top-sentinel" class="absolute left-0 top-0 h-px w-px" aria-hidden="true"></span>
+	<span id="top" class="absolute left-0 top-0" aria-hidden="true"></span>
+
+	{/* Ambient blueprint grid — masked, fixed, behind content */}
+	<div class="v3-grid v3-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+
+	<V3Header client:load />
+
+	<div class="relative z-10">
+		<div class="mx-auto max-w-[1180px] px-5 sm:px-8">
+			<V3Hero client:load />
+		</div>
+
+		<main id="main" class="mx-auto max-w-[1180px] px-5 sm:px-8">
+			<V3Proof client:visible />
+			<V3Work client:visible />
+			<V3Projects client:visible />
+			<V3Experience client:visible />
+			<V3Skills client:visible />
+			<V3About client:visible />
+			<V3Contact client:visible />
+		</main>
+
+		<V3Footer />
+	</div>
+</V3Layout>

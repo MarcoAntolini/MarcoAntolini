@@ -1,0 +1,37 @@
+---
+import AmbientBackground from "@/components/portfolio/ambient-background.astro";
+import CaseStudy from "@/components/portfolio/case-study";
+import SiteFooter from "@/components/portfolio/site-footer.astro";
+import SiteHeader from "@/components/portfolio/site-header";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { caseStudies } from "@/content/case-studies";
+import { getProjectBySlug } from "@/content/projects";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+	return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug!);
+const caseStudy = caseStudies.find((study) => study.slug === slug);
+
+if (!project || !caseStudy) {
+	return Astro.redirect("/404");
+}
+
+const pathname = Astro.url.pathname;
+---
+
+<BaseLayout
+	title={`${project.title} — Case study`}
+	description={project.longDescription ?? project.description}
+>
+	<AmbientBackground />
+	<SiteHeader client:load pathname={pathname} />
+	<main class="relative min-h-screen">
+		<CaseStudy client:load slug={slug!} />
+	</main>
+	<SiteFooter />
+</BaseLayout>
