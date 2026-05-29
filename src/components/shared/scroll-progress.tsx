@@ -11,7 +11,7 @@ export default function ScrollProgress() {
 
 	return (
 		<motion.div
-			className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)]"
+			className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-brand-emerald shadow-[0_0_12px_rgb(var(--brand-emerald)/0.6)]"
 			style={{ scaleX }}
 			aria-hidden="true"
 		/>

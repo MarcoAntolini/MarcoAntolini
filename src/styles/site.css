@@ -4,7 +4,7 @@
 
 /*
  * Site identity layer — unified MA brand kit.
- * Satoshi display + Space Mono interface detail. Single emerald accent.
+ * Satoshi display + Space Mono interface detail. Accent preview themes.
  */
 
 :root {
@@ -20,6 +20,30 @@
 	--brand-emerald: 52 211 153;
 	--brand-teal: 15 118 110;
 	--brand-amber: 245 158 11;
+}
+
+html[data-accent-theme="cyan"] {
+	--brand-emerald: 34 211 238;
+	--brand-teal: 14 116 144;
+	--brand-amber: 251 191 36;
+}
+
+html[data-accent-theme="violet"] {
+	--brand-emerald: 167 139 250;
+	--brand-teal: 109 40 217;
+	--brand-amber: 251 146 60;
+}
+
+html[data-accent-theme="coral"] {
+	--brand-emerald: 251 113 133;
+	--brand-teal: 190 18 60;
+	--brand-amber: 250 204 21;
+}
+
+html[data-accent-theme="gold"] {
+	--brand-emerald: 245 158 11;
+	--brand-teal: 180 83 9;
+	--brand-amber: 52 211 153;
 }
 
 html {
@@ -161,7 +185,7 @@ body {
 		opacity: 1;
 	}
 	50% {
-		opacity: 0.25;
+		opacity: 0.18;
 	}
 }
 
@@ -178,7 +202,8 @@ body {
 }
 
 .site-animate-blink {
-	animation: site-blink 1.6s steps(2, end) infinite;
+	animation: site-blink 1.15s ease-in-out infinite;
+	will-change: opacity;
 }
 
 .site-animate-pulse {

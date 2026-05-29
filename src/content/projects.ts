@@ -11,6 +11,7 @@ export type Project = {
 	href: string;
 	github?: string;
 	vscode?: string;
+	live?: boolean;
 	featured: boolean;
 	flagship?: boolean;
 	spotlight?: boolean;
@@ -25,14 +26,15 @@ export const projects: Project[] = [
 		slug: "dracania-archives",
 		title: "Dracania Archives",
 		description:
-			"Production web app for Drakensang Online — item database, build tools, and community features used by active players.",
+			"Archived web app for Drakensang Online — item database, build tools, and community features used by active players.",
 		longDescription:
-			"Full-stack Next.js product with search, filtering, and tooling tailored to a live MMO community. My strongest proof of shipping real software beyond coursework.",
-		tags: ["Next.js", "React", "TypeScript", "Tailwind"],
+			"Dracania Archives was a community web app for Drakensang Online that helped players search items, explore builds, and access useful game information in one place. It was designed around the way active players plan, compare, and improve their characters.",
+		tags: ["Next.js", "TypeScript", "Convex", "Vercel", "Stripe"],
 		icon: "/projects/icons/dracania-archives.png",
 		banner: "/projects/banners/dracania-archives.png",
 		href: "https://dracania-archives.com",
 		github: "https://github.com/MarcoAntolini",
+		live: false,
 		featured: true,
 		flagship: true,
 	},
@@ -42,8 +44,8 @@ export const projects: Project[] = [
 		description:
 			"Chrome extension that syncs CSSBattle submissions to your GitHub repo — no copy-paste, every pass becomes a commit.",
 		longDescription:
-			"Open-source Chrome extension with GitHub OAuth, content scripts on CSSBattle, and automatic commit sync — published on the Chrome Web Store. One of my biggest builds: privacy-first, no server-side battle storage, and every pass lands in a repo you own.",
-		tags: ["Chrome extension", "TypeScript", "CSSBattle", "GitHub OAuth"],
+			"CssHub is an open-source Chrome extension that automatically saves CSSBattle solutions directly to a GitHub repository you control. It removes the copy-paste step, keeps your progress backed up, and is available on the Chrome Web Store.",
+		tags: ["Chrome Extension", "TypeScript", "GitHub API", "OAuth", "Manifest V3"],
 		icon: "/projects/icons/csshub.png",
 		banner: "/projects/banners/csshub.png",
 		href: "https://chromewebstore.google.com/detail/CssHub/oakkijoinjkdhcgnpnmnpjkmpdekajid",

@@ -1,6 +1,7 @@
 ---
 import AmbientBackground from "@/components/site/ambient-background.astro";
 import CursorGlow from "@/components/shared/cursor-glow";
+import AccentSwitcher from "@/components/site/accent-switcher";
 import ToastProvider from "@/components/toast-provider";
 import { profile } from "@/content/profile";
 import { absoluteUrl, personJsonLd } from "@/lib/seo";
@@ -19,13 +20,24 @@ const defaultDescription = tidy(profile.heroLine);
 const { title = defaultTitle, description = defaultDescription, noindex = false } = Astro.props;
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const jsonLd = JSON.stringify(personJsonLd());
+const accentBootScript = `
+(() => {
+	try {
+		const theme = localStorage.getItem("accent-theme");
+		if (theme && theme !== "emerald") {
+			document.documentElement.dataset.accentTheme = theme;
+		}
+	} catch {}
+})();
+`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="google" content="notranslate" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -46,6 +58,7 @@ const jsonLd = JSON.stringify(personJsonLd());
 			href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
 			rel="stylesheet"
 		/>
+		<script is:inline set:html={accentBootScript}></script>
 	</head>
 	<body class="min-h-screen bg-brand-obsidian font-satoshi text-brand-ivory antialiased">
 		<script type="application/ld+json" set:html={jsonLd} />
@@ -57,6 +70,7 @@ const jsonLd = JSON.stringify(personJsonLd());
 		</a>
 		<AmbientBackground />
 		<CursorGlow client:load />
+		<AccentSwitcher client:load />
 		<slot />
 		<div class="site-noise pointer-events-none fixed inset-0 z-[1] opacity-55" aria-hidden="true"></div>
 		<ToastProvider client:load />

@@ -38,7 +38,7 @@ export default function Hero() {
 					<div className="mt-10 flex flex-wrap items-center gap-3">
 						<a
 							href="#contact"
-							className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-brand-obsidian transition-colors duration-200 hover:bg-emerald-300 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
+							className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-brand-obsidian transition-colors duration-200 hover:bg-brand-emerald/85 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
 						>
 							Start a conversation
 							<span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-obsidian/10">

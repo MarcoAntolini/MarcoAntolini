@@ -29,6 +29,12 @@ export default function Work() {
 function HighlightProjectCard({ project, index }: { project: Project; index: number }) {
 	const accent = getProjectAccent(project.slug);
 	const study = getCaseStudyBySlug(project.slug);
+	const hasStudy = hasCaseStudy(project.slug);
+	const isLiveProject = project.live !== false;
+	const caseStudyHref = `/work/${project.slug}`;
+	const primaryHref = isLiveProject ? project.href : hasStudy ? caseStudyHref : project.github ?? project.href;
+	const primaryLabel = isLiveProject ? study?.primaryCtaLabel ?? "Visit" : hasStudy ? "Read case study" : "View project";
+	const primaryIsExternal = primaryHref.startsWith("http");
 
 	return (
 		<Reveal as="article" delay={index * 0.06}>
@@ -70,17 +76,17 @@ function HighlightProjectCard({ project, index }: { project: Project; index: num
 
 						<div className="mt-8 flex flex-wrap gap-3">
 							<a
-								href={project.href}
-								target="_blank"
-								rel="noopener noreferrer"
+								href={primaryHref}
+								target={primaryIsExternal ? "_blank" : undefined}
+								rel={primaryIsExternal ? "noopener noreferrer" : undefined}
 								className={`inline-flex min-h-11 items-center gap-2 rounded-full px-5 py-2.5 font-satoshi text-sm font-semibold transition-colors duration-200 ${accent.primaryBtn} motion-reduce:transition-none`}
 							>
-								{study?.primaryCtaLabel ?? "Visit"}
-								<ArrowUpRight />
+								{primaryLabel}
+								{primaryIsExternal ? <ArrowUpRight /> : <ArrowDiagonal />}
 							</a>
-							{hasCaseStudy(project.slug) ? (
+							{hasStudy && primaryHref !== caseStudyHref ? (
 								<a
-									href={`/work/${project.slug}`}
+									href={caseStudyHref}
 									className={`inline-flex min-h-11 items-center gap-2 rounded-full border bg-brand-obsidian/30 px-5 py-2.5 font-satoshi text-sm font-medium text-brand-ivory backdrop-blur-sm transition-colors duration-200 ${accent.caseStudyRing} motion-reduce:transition-none`}
 								>
 									Read case study

@@ -171,7 +171,7 @@ export default function Contact() {
 						<button
 							type="submit"
 							disabled={isSubmitting || !turnstileToken}
-							className="min-h-12 rounded-xl bg-brand-emerald px-6 py-3 font-satoshi text-base font-semibold text-brand-obsidian shadow-lg shadow-brand-emerald/20 transition-colors hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
+							className="min-h-12 rounded-xl bg-brand-emerald px-6 py-3 font-satoshi text-base font-semibold text-brand-obsidian shadow-lg shadow-brand-emerald/20 transition-colors hover:bg-brand-emerald/85 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
 						>
 							{isSubmitting ? "Sending…" : "Send message"}
 						</button>

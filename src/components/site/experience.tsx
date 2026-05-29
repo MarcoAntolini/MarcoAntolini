@@ -43,7 +43,7 @@ export default function Experience() {
 								transition={{ delay: index * 0.08, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
 								aria-hidden
 							>
-								<span className="h-1.5 w-1.5 rounded-full bg-brand-emerald shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+								<span className="h-1.5 w-1.5 rounded-full bg-brand-emerald shadow-[0_0_8px_rgb(var(--brand-emerald)/0.8)]" />
 							</motion.span>
 							<motion.article
 								className="site-surface-flat rounded-2xl p-6 sm:p-8"

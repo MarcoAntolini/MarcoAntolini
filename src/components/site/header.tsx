@@ -59,6 +59,7 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 
 		const topResetThreshold = 80;
 		const activationOffset = 160;
+		const bottomThreshold = 48;
 		let frame = 0;
 
 		const updateActiveSection = () => {
@@ -68,14 +69,22 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 				return;
 			}
 
-			let current: string | null = null;
-			for (const item of navItems) {
-				const section = document.getElementById(item.sectionId);
-				if (!section) continue;
+			const atPageBottom =
+				window.innerHeight + scrollY >= document.documentElement.scrollHeight - bottomThreshold;
 
-				const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-				if (scrollY + activationOffset >= sectionTop) {
-					current = item.sectionId;
+			let current: string | null = null;
+
+			if (atPageBottom) {
+				current = navItems[navItems.length - 1]?.sectionId ?? null;
+			} else {
+				for (const item of navItems) {
+					const section = document.getElementById(item.sectionId);
+					if (!section) continue;
+
+					const sectionTop = section.getBoundingClientRect().top + scrollY;
+					if (scrollY + activationOffset >= sectionTop) {
+						current = item.sectionId;
+					}
 				}
 			}
 
@@ -165,7 +174,7 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 				<div className="hidden items-center gap-3 md:flex">
 					<motion.a
 						href={contactHref}
-						className="rounded-lg bg-brand-emerald px-4 py-2 text-sm font-medium text-brand-obsidian transition hover:bg-emerald-300 motion-reduce:transition-none"
+						className="rounded-lg bg-brand-emerald px-4 py-2 text-sm font-medium text-brand-obsidian transition hover:bg-brand-emerald/85 motion-reduce:transition-none"
 						whileHover={reduceMotion ? undefined : { scale: 1.03 }}
 						whileTap={reduceMotion ? undefined : { scale: 0.98 }}
 					>
