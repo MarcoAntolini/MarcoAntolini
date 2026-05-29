@@ -48,8 +48,11 @@ export default function AboutSection() {
 						<Reveal delay={0.1}>
 							<div className="shimmer-border relative overflow-hidden rounded-2xl p-6">
 								<div className="pointer-events-none absolute inset-0 bg-emerald-500/5" aria-hidden="true" />
-								<p className="relative font-mono text-sm text-emerald-400/90">Currently</p>
-								<p className="relative mt-2 font-medium text-zinc-200">{profile.availability}</p>
+								<p className="relative font-mono text-sm text-emerald-400/90">{profile.availabilityStatus.label}</p>
+								<p className="relative mt-2 font-medium text-zinc-200">{profile.availabilityStatus.engagement}</p>
+								<p className="relative mt-1 font-mono text-xs text-zinc-500">
+									{profile.availabilityStatus.roles.join(" · ")}
+								</p>
 								<p className="relative mt-3 font-mono text-xs text-zinc-500">{profile.signature}</p>
 							</div>
 						</Reveal>

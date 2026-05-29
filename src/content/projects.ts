@@ -54,10 +54,9 @@ export const projects: Project[] = [
 	{
 		slug: "fated-encounters",
 		title: "Fated Encounters",
-		description:
-			"Hades II mod that guarantees ally and post-True Ending NPC encounters on every run you choose.",
+		description: "A Hades II mod that lets you influence which NPCs you run into.",
 		longDescription:
-			"Published on Thunderstore with in-game settings, r2modman config, and per-run guarantees for Nemesis, Artemis, Heracles, Icarus, Athena, and post-True Ending Zagreus and Chronos encounters.",
+			"A Hades II mod that gives you more control over NPC encounters — so you can shape who shows up during a run.",
 		tags: ["Hades II mod", "Lua", "Thunderstore"],
 		icon: "/projects/icons/fated-encounters.png",
 		banner: "/projects/banners/fated-encounters.png",

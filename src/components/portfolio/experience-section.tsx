@@ -22,7 +22,6 @@ export default function ExperienceSection() {
 					id="experience"
 					eyebrow="Experience"
 					title="Where I've been building"
-					description="University foundations, independent product work, and what I'm looking for next."
 				/>
 
 				<div ref={containerRef} className="relative">

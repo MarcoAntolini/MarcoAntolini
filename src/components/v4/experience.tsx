@@ -21,9 +21,6 @@ export default function V4Experience() {
 				<h2 id="v4-experience-heading" className="max-w-xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.4rem] sm:leading-[1.08]">
 					Where I&apos;ve been building
 				</h2>
-				<p className="mt-4 max-w-lg text-base leading-relaxed text-brand-muted">
-					University foundations, independent product work, and what I&apos;m looking for next.
-				</p>
 			</Reveal>
 
 			<div ref={containerRef} className="relative mt-12">

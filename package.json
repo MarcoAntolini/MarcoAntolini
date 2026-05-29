@@ -13,13 +13,12 @@
 		"typecheck": "astro sync && tsc --noEmit"
 	},
 	"dependencies": {
-		"@astrojs/react": "^4.4.2",
-		"@astrojs/tailwind": "^6.0.2",
-		"@astrojs/vercel": "^8.2.11",
+		"@astrojs/react": "^5.0.6",
+		"@astrojs/vercel": "^10.0.8",
 		"@marsidev/react-turnstile": "^1.1.0",
 		"@upstash/ratelimit": "^2.0.5",
 		"@upstash/redis": "^1.34.3",
-		"astro": "^5.18.1",
+		"astro": "^6.4.2",
 		"clsx": "^2.1.1",
 		"framer-motion": "^12.15.0",
 		"lucide-react": "^0.468.0",
@@ -29,7 +28,9 @@
 		"resend": "^4.0.1"
 	},
 	"overrides": {
-		"prettier": "3.8.3"
+		"prettier": "3.8.3",
+		"path-to-regexp": "6.3.0",
+		"next": "15.5.18"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",

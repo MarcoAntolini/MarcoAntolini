@@ -10,7 +10,7 @@ export type CaseStudySection = {
 	items?: string[];
 };
 
-export type CaseStudyTheme = "emerald" | "fuchsia";
+export type CaseStudyTheme = "ochre" | "yellow";
 
 export type CaseStudy = {
 	slug: string;
@@ -31,7 +31,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
 	{
 		slug: "dracania-archives",
-		theme: "emerald",
+		theme: "ochre",
 		previewDomain: "dracania-archives.com",
 		primaryCtaLabel: "Visit live site",
 		headerSecondaryCta: { label: "Get in touch", href: "/#contact" },
@@ -91,7 +91,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "csshub",
-		theme: "fuchsia",
+		theme: "yellow",
 		previewDomain: "chromewebstore.google.com",
 		primaryCtaLabel: "Add to Chrome",
 		headerSecondaryCta: {

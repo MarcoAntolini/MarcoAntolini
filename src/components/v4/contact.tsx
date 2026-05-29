@@ -1,6 +1,6 @@
 "use client";
 
-import { StatusDot } from "@/components/v4/frame";
+import { ResponseTimeStatus } from "@/components/availability-status";
 import { Reveal } from "@/components/v4/reveal";
 import { profile } from "@/content/profile";
 import { turnstileSiteKey } from "@/lib/contact/client";
@@ -83,12 +83,7 @@ export default function V4Contact() {
 						{tidy(profile.availability)} Send a message or reach out on LinkedIn. I reply to every serious inquiry.
 					</p>
 
-					<div className="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-zinc/50 px-3 py-1.5">
-						<StatusDot tone="emerald" />
-						<span className="font-space-mono text-[11px] uppercase tracking-[0.18em] text-brand-muted">
-							Usually replies within a day
-						</span>
-					</div>
+					<ResponseTimeStatus variant="v4" className="mt-8" />
 
 					<div className="mt-8 space-y-3">
 						<a

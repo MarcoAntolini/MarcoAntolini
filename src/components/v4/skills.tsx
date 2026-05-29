@@ -10,9 +10,6 @@ export default function V4Skills() {
 				<h2 id="v4-skills-heading" className="max-w-xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.4rem] sm:leading-[1.08]">
 					Skills and stack
 				</h2>
-				<p className="mt-4 max-w-lg text-base leading-relaxed text-brand-muted">
-					Strongest where users meet the product: React, Next.js, Flutter, and TypeScript.
-				</p>
 			</Reveal>
 
 			<div className="mt-12 grid gap-5 sm:grid-cols-2">

@@ -1,11 +1,11 @@
 "use client";
 
 import { profile } from "@/content/profile";
+import AvailabilityStatus from "@/components/availability-status";
 import { Magnetic, TextReveal } from "@/components/portfolio/motion";
-import RotatingText from "@/components/portfolio/rotating-text";
 import TiltCard from "@/components/portfolio/tilt-card";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Download, Github, Linkedin, Sparkles } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Sparkles } from "lucide-react";
 
 export default function Hero() {
 	const reduceMotion = useReducedMotion();
@@ -24,18 +24,7 @@ export default function Hero() {
 
 			<div className="grid items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
 				<div>
-					<motion.div
-						className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/5 px-4 py-2 font-mono text-xs text-emerald-300/90"
-						initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.1 }}
-					>
-						<span className="relative flex h-2 w-2">
-							<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
-							<span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
-						</span>
-						{profile.availability}
-					</motion.div>
+					<AvailabilityStatus variant="craft" />
 
 					<motion.h1
 						className="mt-8 overflow-visible font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
@@ -50,8 +39,7 @@ export default function Hero() {
 							delay={0.2}
 						/>
 						<span className="mt-3 block text-2xl font-semibold text-emerald-300 sm:text-3xl lg:text-4xl">
-							Building{" "}
-							<RotatingText items={profile.rotatingFocus} className="text-emerald-400" />
+							{profile.title}
 						</span>
 					</motion.h1>
 
@@ -77,16 +65,6 @@ export default function Hero() {
 							>
 								<Sparkles className="h-4 w-4 transition group-hover:rotate-12 motion-reduce:transition-none" aria-hidden />
 								Start a conversation
-							</a>
-						</Magnetic>
-						<Magnetic strength={0.16}>
-							<a
-								href={profile.cvPath}
-								download
-								className="glass-panel inline-flex min-h-12 items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-emerald-500/40 hover:text-emerald-300 motion-reduce:transition-none"
-							>
-								<Download className="h-4 w-4" aria-hidden />
-								Download CV
 							</a>
 						</Magnetic>
 						<Magnetic strength={0.14}>
@@ -145,13 +123,6 @@ export default function Hero() {
 								decoding="async"
 								className="relative h-48 w-48 rounded-2xl object-cover sm:h-52 sm:w-52"
 							/>
-							<motion.div
-								className="absolute -bottom-3 -right-3 rounded-xl border border-emerald-500/40 bg-zinc-900 px-3 py-2 font-mono text-xs text-emerald-400 shadow-lg"
-								animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
-								transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-							>
-								Open to internships
-							</motion.div>
 						</div>
 					</TiltCard>
 				</motion.div>

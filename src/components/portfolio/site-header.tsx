@@ -154,13 +154,6 @@ export default function SiteHeader({ pathname = "/" }: SiteHeaderProps) {
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
-					<a
-						href={profile.cvPath}
-						download
-						className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:text-zinc-100 motion-reduce:transition-none"
-					>
-						CV
-					</a>
 					<motion.a
 						href={isHome ? "#contact" : "/#contact"}
 						className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400 motion-reduce:transition-none"

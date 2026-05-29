@@ -1,6 +1,7 @@
 "use client";
 
 import { BrowserFrame } from "@/components/v2/frame";
+import AvailabilityStatus from "@/components/availability-status";
 import { profile } from "@/content/profile";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -22,16 +23,7 @@ export default function V2Hero() {
 		<section className="relative flex min-h-[100dvh] items-center pb-20 pt-28 sm:pt-32">
 			<div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
 				<div>
-					<motion.span
-						{...rise(0.05)}
-						className="inline-flex items-center gap-2 rounded-full border border-v2-emerald/25 bg-v2-emerald/5 px-3.5 py-1.5 font-space-mono text-[11px] uppercase tracking-[0.16em] text-v2-emerald"
-					>
-						<span className="relative flex h-2 w-2">
-							<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-v2-emerald opacity-60 motion-reduce:animate-none" />
-							<span className="relative inline-flex h-2 w-2 rounded-full bg-v2-emerald" />
-						</span>
-						Open to engineering internships
-					</motion.span>
+					<AvailabilityStatus variant="v2" />
 
 					<motion.h1
 						{...rise(0.12)}
@@ -83,13 +75,6 @@ export default function V2Hero() {
 							className="transition-colors hover:text-v2-emerald motion-reduce:transition-none"
 						>
 							LinkedIn
-						</a>
-						<a
-							href={profile.cvPath}
-							download
-							className="transition-colors hover:text-v2-emerald motion-reduce:transition-none"
-						>
-							CV
 						</a>
 					</motion.div>
 				</div>

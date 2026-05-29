@@ -1,8 +1,7 @@
 "use client";
 
 import { TextReveal } from "@/components/portfolio/motion";
-import RotatingText from "@/components/portfolio/rotating-text";
-import { StatusDot } from "@/components/v4/frame";
+import AvailabilityStatus from "@/components/availability-status";
 import { profile } from "@/content/profile";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -13,15 +12,7 @@ export default function V4Hero() {
 		<section className="relative flex min-h-[100dvh] flex-col justify-center pt-24 pb-14 sm:pt-28">
 			<div className="grid items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
 				<div>
-					<motion.div
-						className="inline-flex items-center gap-2 rounded-full border border-brand-emerald/25 bg-brand-emerald/5 px-4 py-2 font-space-mono text-xs text-brand-emerald"
-						initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.1 }}
-					>
-						<StatusDot tone="emerald" />
-						{profile.availability}
-					</motion.div>
+					<AvailabilityStatus variant="v4" />
 
 					<motion.h1
 						className="mt-7 overflow-visible font-satoshi text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
@@ -31,7 +22,7 @@ export default function V4Hero() {
 					>
 						<TextReveal as="span" text={profile.name} className="block leading-[1.08] text-brand-ivory" delay={0.2} />
 						<span className="mt-3 block text-2xl font-semibold text-brand-emerald sm:text-3xl lg:text-4xl">
-							Building <RotatingText items={profile.rotatingFocus} className="text-brand-emerald" />
+							{profile.title}
 						</span>
 					</motion.h1>
 
@@ -53,14 +44,6 @@ export default function V4Hero() {
 							<span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-obsidian/10">
 								<ArrowIcon />
 							</span>
-						</a>
-						<a
-							href={profile.cvPath}
-							download
-							className="v4-glass inline-flex min-h-12 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-brand-ivory transition-colors duration-200 hover:border-brand-emerald/40 hover:text-brand-emerald active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-						>
-							<DownloadIcon />
-							Download CV
 						</a>
 						<a
 							href={profile.linkedin}
@@ -116,12 +99,6 @@ export default function V4Hero() {
 							</div>
 						</div>
 					</div>
-					<div className="absolute -bottom-3 -right-2 sm:-right-4">
-						<span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald/30 bg-brand-zinc/90 px-3 py-1.5 font-space-mono text-[10px] uppercase tracking-[0.16em] text-brand-emerald backdrop-blur-sm">
-							<StatusDot tone="emerald" />
-							Open to internships
-						</span>
-					</div>
 				</motion.div>
 			</div>
 		</section>
@@ -135,15 +112,6 @@ function ArrowIcon() {
 		</svg>
 	);
 }
-
-function DownloadIcon() {
-	return (
-		<svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-			<path d="M10 3v10M6 9l4 4 4-4M4 17h12" strokeLinecap="round" strokeLinejoin="round" />
-		</svg>
-	);
-}
-
 function LinkedInIcon() {
 	return (
 		<svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden="true">

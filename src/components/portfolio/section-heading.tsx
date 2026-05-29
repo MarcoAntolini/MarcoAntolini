@@ -35,7 +35,7 @@ export default function SectionHeading({ id, eyebrow, title, description }: Sect
 				<TextReveal as="span" text={title} delay={0.05} />
 			</h2>
 			{description ? (
-				<p className="mt-4 text-lg leading-relaxed text-zinc-400">{description}</p>
+				<p className="mt-4 text-pretty text-lg leading-relaxed text-zinc-400">{description}</p>
 			) : null}
 		</Reveal>
 	);

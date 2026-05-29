@@ -166,13 +166,6 @@ export default function V4Header({ pathname = "/", basePath = "" }: V4HeaderProp
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
-					<a
-						href={profile.cvPath}
-						download
-						className="rounded-lg px-3 py-2 text-sm text-brand-muted transition hover:text-brand-ivory motion-reduce:transition-none"
-					>
-						CV
-					</a>
 					<motion.a
 						href={contactHref}
 						className="rounded-lg bg-brand-emerald px-4 py-2 text-sm font-medium text-brand-obsidian transition hover:bg-emerald-300 motion-reduce:transition-none"

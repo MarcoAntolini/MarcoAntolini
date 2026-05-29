@@ -40,29 +40,29 @@ const themeStyles: Record<
 		footerEyebrow: string;
 	}
 > = {
-	emerald: {
-		eyebrow: "text-emerald-400/90",
-		linkHover: "hover:text-emerald-400",
-		button: "bg-emerald-500 text-zinc-950 hover:bg-emerald-400",
-		buttonHover: "hover:border-emerald-500/40",
-		outcomesBorder: "border-emerald-500/30",
-		outcomesGradient: "from-emerald-950/30 via-zinc-900/50 to-zinc-950/80",
-		outcomesIcon: "bg-emerald-500/15 text-emerald-400",
-		outcomesDot: "bg-emerald-400",
-		previewGradient: "from-emerald-950/40 via-zinc-950 to-zinc-950",
-		footerEyebrow: "text-emerald-400/90",
+	ochre: {
+		eyebrow: "text-orange-400/90",
+		linkHover: "hover:text-orange-400",
+		button: "bg-orange-600 text-zinc-950 hover:bg-orange-500",
+		buttonHover: "hover:border-orange-500/40",
+		outcomesBorder: "border-orange-500/30",
+		outcomesGradient: "from-orange-950/30 via-zinc-900/50 to-zinc-950/80",
+		outcomesIcon: "bg-orange-500/15 text-orange-400",
+		outcomesDot: "bg-orange-400",
+		previewGradient: "from-orange-950/40 via-zinc-950 to-zinc-950",
+		footerEyebrow: "text-orange-400/90",
 	},
-	fuchsia: {
-		eyebrow: "text-fuchsia-400/90",
-		linkHover: "hover:text-fuchsia-400",
-		button: "bg-fuchsia-500 text-zinc-950 hover:bg-fuchsia-400",
-		buttonHover: "hover:border-fuchsia-500/40",
-		outcomesBorder: "border-fuchsia-500/30",
-		outcomesGradient: "from-fuchsia-950/30 via-zinc-900/50 to-zinc-950/80",
-		outcomesIcon: "bg-fuchsia-500/15 text-fuchsia-400",
-		outcomesDot: "bg-fuchsia-400",
-		previewGradient: "from-fuchsia-950/40 via-zinc-950 to-zinc-950",
-		footerEyebrow: "text-fuchsia-400/90",
+	yellow: {
+		eyebrow: "text-yellow-400/90",
+		linkHover: "hover:text-yellow-400",
+		button: "bg-yellow-400 text-zinc-950 hover:bg-yellow-300",
+		buttonHover: "hover:border-yellow-500/40",
+		outcomesBorder: "border-yellow-500/30",
+		outcomesGradient: "from-yellow-950/30 via-zinc-900/50 to-zinc-950/80",
+		outcomesIcon: "bg-yellow-500/15 text-yellow-400",
+		outcomesDot: "bg-yellow-400",
+		previewGradient: "from-yellow-950/40 via-zinc-950 to-zinc-950",
+		footerEyebrow: "text-yellow-400/90",
 	},
 };
 

@@ -176,19 +176,19 @@ export default function V4CaseStudy({ slug }: CaseStudyProps) {
 }
 
 function accentForTheme(theme: CaseStudyTheme) {
-	if (theme === "fuchsia") {
+	if (theme === "yellow") {
 		return {
-			button: "bg-fuchsia-500 text-brand-obsidian hover:bg-fuchsia-400",
-			outcomesBorder: "border-fuchsia-500/30",
-			outcomesBg: "bg-gradient-to-br from-fuchsia-950/30 via-brand-zinc/50 to-brand-obsidian/80",
-			dot: "bg-fuchsia-400",
+			button: "bg-yellow-400 text-brand-obsidian hover:bg-yellow-300",
+			outcomesBorder: "border-yellow-500/30",
+			outcomesBg: "bg-gradient-to-br from-yellow-950/30 via-brand-zinc/50 to-brand-obsidian/80",
+			dot: "bg-yellow-400",
 		};
 	}
 	return {
-		button: "bg-brand-emerald text-brand-obsidian hover:bg-emerald-300",
-		outcomesBorder: "border-brand-emerald/30",
-		outcomesBg: "bg-gradient-to-br from-brand-teal/20 via-brand-zinc/50 to-brand-obsidian/80",
-		dot: "bg-brand-emerald",
+		button: "bg-orange-600 text-brand-obsidian hover:bg-orange-500",
+		outcomesBorder: "border-orange-500/30",
+		outcomesBg: "bg-gradient-to-br from-orange-950/30 via-brand-zinc/50 to-brand-obsidian/80",
+		dot: "bg-orange-400",
 	};
 }
 

@@ -10,7 +10,6 @@ export const GET: APIRoute = () => {
 			changeFrequency: "monthly" as const,
 			priority: "0.8",
 		})),
-		{ path: "/resume", changeFrequency: "monthly", priority: "0.8" },
 	];
 
 	const lastModified = new Date().toISOString();

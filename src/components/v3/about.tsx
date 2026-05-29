@@ -63,7 +63,7 @@ export default function V3About() {
 							<span className="text-brand-emerald">$</span> <span className="text-brand-ivory">status</span>
 						</p>
 						<p className="text-brand-emerald">
-							open to internships <span className="v3-animate-blink">▍</span>
+							open to internships & freelance <span className="v3-animate-blink">▍</span>
 						</p>
 					</TerminalFrame>
 				</Reveal>

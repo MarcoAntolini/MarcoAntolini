@@ -1,6 +1,7 @@
 "use client";
 
 import { BrowserFrame, StatusDot } from "@/components/v3/frame";
+import AvailabilityStatus from "@/components/availability-status";
 import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/content/profile";
 
@@ -23,15 +24,7 @@ export default function V3Hero() {
 			<div className="grid w-full items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
 				{/* Left — message */}
 				<div className="max-w-xl">
-					<motion.div
-						{...enter(0)}
-						className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-zinc/60 px-3 py-1.5"
-					>
-						<StatusDot tone="emerald" />
-						<span className="font-space-mono text-[11px] uppercase tracking-[0.2em] text-brand-muted">
-							Open to internships
-						</span>
-					</motion.div>
+					<AvailabilityStatus variant="v3" />
 
 					<motion.h1
 						{...enter(0.08)}
