@@ -1,0 +1,64 @@
+---
+import V4AmbientBackground from "@/components/v4/ambient-background.astro";
+import CursorGlow from "@/components/portfolio/cursor-glow";
+import ToastProvider from "@/components/toast-provider";
+import { profile } from "@/content/profile";
+import { absoluteUrl, personJsonLd } from "@/lib/seo";
+import { tidy } from "@/lib/v2-text";
+import "@/styles/v4.css";
+
+export interface Props {
+	title?: string;
+	description?: string;
+	noindex?: boolean;
+}
+
+const defaultTitle = `${profile.name} · Frontend & mobile engineer`;
+const defaultDescription = tidy(profile.heroLine);
+
+const { title = defaultTitle, description = defaultDescription, noindex = false } = Astro.props;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const jsonLd = JSON.stringify(personJsonLd());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+		<link rel="canonical" href={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+		<link
+			href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen bg-brand-obsidian font-satoshi text-brand-ivory antialiased">
+		<script type="application/ld+json" set:html={jsonLd} />
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-brand-emerald focus:px-4 focus:py-2 focus:font-satoshi focus:text-sm focus:font-semibold focus:text-brand-obsidian"
+		>
+			Skip to content
+		</a>
+		<V4AmbientBackground />
+		<CursorGlow client:load />
+		<slot />
+		<div class="v4-noise pointer-events-none fixed inset-0 z-[1] opacity-55" aria-hidden="true"></div>
+		<ToastProvider client:load />
+	</body>
+</html>

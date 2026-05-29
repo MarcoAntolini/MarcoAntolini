@@ -103,7 +103,7 @@ export default function V2Hero() {
 					<div className="pointer-events-none absolute -inset-8 rounded-full bg-v2-emerald/10 blur-3xl v2-animate-pulse motion-reduce:animate-none" aria-hidden="true" />
 					<BrowserFrame
 						url="dracania-archives.com"
-						src="/dracania-archives.png"
+						src="/projects/banners/dracania-archives.png"
 						alt="Dracania Archives: production web app for the Drakensang Online community"
 						status="Deployed"
 						priority

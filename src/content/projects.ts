@@ -10,9 +10,14 @@ export type Project = {
 	banner: string;
 	href: string;
 	github?: string;
+	vscode?: string;
 	featured: boolean;
 	flagship?: boolean;
 	spotlight?: boolean;
+	/** Shown in the v4 workshop slot below selected work */
+	workshop?: boolean;
+	/** Primary CTA label for workshop cards */
+	workshopCta?: string;
 };
 
 export const projects: Project[] = [
@@ -25,7 +30,7 @@ export const projects: Project[] = [
 			"Full-stack Next.js product with search, filtering, and tooling tailored to a live MMO community. My strongest proof of shipping real software beyond coursework.",
 		tags: ["Next.js", "React", "TypeScript", "Tailwind"],
 		icon: "/projects/icons/dracania-archives.png",
-		banner: "/dracania-archives.png",
+		banner: "/projects/banners/dracania-archives.png",
 		href: "https://dracania-archives.com",
 		github: "https://github.com/MarcoAntolini",
 		featured: true,
@@ -47,59 +52,36 @@ export const projects: Project[] = [
 		spotlight: true,
 	},
 	{
-		slug: "flyaway",
-		title: "Fly Away",
-		description: "Travel agency demo site with Python, Flask, and SQL — full CRUD and templating.",
-		tags: ["Python", "Flask", "SQL"],
-		icon: "/projects/banners/flyaway.svg",
-		banner: "/flyaway.png",
-		href: "https://github.com/MarcoAntolini/FlyAway",
-		github: "https://github.com/MarcoAntolini/FlyAway",
+		slug: "fated-encounters",
+		title: "Fated Encounters",
+		description:
+			"Hades II mod that guarantees ally and post-True Ending NPC encounters on every run you choose.",
+		longDescription:
+			"Published on Thunderstore with in-game settings, r2modman config, and per-run guarantees for Nemesis, Artemis, Heracles, Icarus, Athena, and post-True Ending Zagreus and Chronos encounters.",
+		tags: ["Hades II mod", "Lua", "Thunderstore"],
+		icon: "/projects/icons/fated-encounters.png",
+		banner: "/projects/banners/fated-encounters.png",
+		href: "https://thunderstore.io/c/hades-ii/p/MarcoAntolini/FatedEncounters/",
+		github: "https://github.com/MarcoAntolini/Fated-Encounters",
 		featured: false,
-	},
-	{
-		slug: "escape",
-		title: "Escape from University",
-		description: "Browser game built for a university project — puzzles, progression, and a playful campus escape.",
-		tags: ["JavaScript", "HTML", "CSS"],
-		icon: "/projects/banners/escape.svg",
-		banner: "/escape-from-university.png",
-		href: "https://github.com/MarcoAntolini/Escape-from-University",
-		github: "https://github.com/MarcoAntolini/Escape-from-University",
-		featured: false,
-	},
-	{
-		slug: "memed",
-		title: "Memed",
-		description: "Meme generator and sharing app — upload, caption, and browse community posts.",
-		tags: ["React", "Node.js"],
-		icon: "/projects/banners/memed.svg",
-		banner: "/projects/banners/memed.svg",
-		href: "https://github.com/MarcoAntolini/Memed",
-		github: "https://github.com/MarcoAntolini/Memed",
-		featured: false,
-	},
-	{
-		slug: "smart-bridge",
-		title: "Smart Bridge IoT",
-		description: "IoT bridge for sensor data — Arduino hardware talking to a web dashboard.",
-		tags: ["IoT", "Arduino", "Sensors"],
-		icon: "/projects/banners/smart-bridge.svg",
-		banner: "/projects/banners/smart-bridge.svg",
-		href: "https://github.com/MarcoAntolini/Smart-Bridge-IOT",
-		github: "https://github.com/MarcoAntolini/Smart-Bridge-IOT",
-		featured: false,
+		workshop: true,
+		workshopCta: "Install on Thunderstore",
 	},
 	{
 		slug: "ts-hover",
 		title: "ts-hover-prettify",
 		description: "VS Code extension that prettifies TypeScript types on hover for faster reading.",
-		tags: ["TypeScript", "VS Code extension"],
-		icon: "/projects/banners/ts-hover.svg",
+		longDescription:
+			"Open-source VS Code extension and npm package that formats dense TypeScript hover types into readable, indented blocks so you spend less time decoding signatures.",
+		tags: ["TypeScript", "VS Code extension", "npm package"],
+		icon: "/projects/icons/ts-hover-prettify.png",
 		banner: "/projects/banners/ts-hover.svg",
-		href: "https://github.com/MarcoAntolini/ts-hover-prettify",
+		href: "https://www.npmjs.com/package/ts-hover-prettify",
 		github: "https://github.com/MarcoAntolini/ts-hover-prettify",
+		vscode: "https://marketplace.visualstudio.com/items?itemName=marcoantolini.ts-hover-prettify-vscode",
 		featured: false,
+		workshop: true,
+		workshopCta: "View on npm",
 	},
 ];
 
@@ -108,6 +90,8 @@ export const flagshipProject = projects.find((p) => p.flagship)!;
 export const spotlightProjects = projects.filter((p) => p.spotlight);
 
 export const highlightProjects = projects.filter((p) => p.flagship || p.spotlight);
+
+export const workshopProjects = projects.filter((p) => p.workshop);
 
 export function getProjectBySlug(slug: string) {
 	return projects.find((p) => p.slug === slug);

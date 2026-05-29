@@ -1,17 +1,16 @@
 "use client";
 
-import { BrowserFrame, StatusDot } from "@/components/v3/frame";
-import { Reveal } from "@/components/v3/reveal";
+import ProjectIcon from "@/components/portfolio/project-icon";
+import { BrowserFrame, StatusDot } from "@/components/v4/frame";
+import { Reveal } from "@/components/v4/reveal";
 import { getCaseStudyBySlug } from "@/content/case-studies";
 import { highlightProjects } from "@/content/projects";
 import { tidy } from "@/lib/v2-text";
-
-export default function V3Work() {
+export default function V4Work() {
 	return (
 		<section id="work" className="scroll-mt-24 border-t border-brand-border/60 py-20 sm:py-28">
 			<Reveal>
-				<p className="v3-label">Selected work</p>
-				<h2 className="mt-4 max-w-2xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.6rem] sm:leading-[1.05]">
+				<h2 className="max-w-2xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.6rem] sm:leading-[1.05]">
 					Products shipped to real users.
 				</h2>
 			</Reveal>
@@ -29,11 +28,10 @@ function FeaturedProject({ slug, flip }: { slug: string; flip: boolean }) {
 	const project = highlightProjects.find((p) => p.slug === slug)!;
 	const study = getCaseStudyBySlug(slug);
 	const live = project.flagship;
-	const banner = slug === "csshub" ? "/projects/banners/csshub.png" : project.banner ?? "/projects/banners/" + slug + ".svg";
+	const banner = slug === "csshub" ? "/projects/banners/csshub.png" : (project.banner ?? `/projects/banners/${slug}.svg`);
 
 	return (
 		<Reveal className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-			{/* Surface */}
 			<div className={flip ? "lg:order-2" : undefined}>
 				<BrowserFrame
 					url={study?.previewDomain ?? project.href}
@@ -60,11 +58,16 @@ function FeaturedProject({ slug, flip }: { slug: string; flip: boolean }) {
 				</BrowserFrame>
 			</div>
 
-			{/* Copy */}
 			<div className={flip ? "lg:order-1" : ""}>
-				<h3 className="font-satoshi text-2xl font-bold tracking-tight text-brand-ivory sm:text-3xl">
-					{project.title}
-				</h3>
+				<div className="flex items-center gap-3">
+					<ProjectIcon
+						src={project.icon}
+						alt=""
+						size="sm"
+						className="border-brand-border bg-brand-zinc/80 shadow-black/30"
+					/>
+					<h3 className="font-satoshi text-2xl font-bold tracking-tight text-brand-ivory sm:text-3xl">{project.title}</h3>
+				</div>
 				<p className="mt-4 max-w-md text-base leading-relaxed text-brand-muted">
 					{tidy(project.longDescription ?? project.description)}
 				</p>
@@ -73,10 +76,8 @@ function FeaturedProject({ slug, flip }: { slug: string; flip: boolean }) {
 					<dl className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-brand-border bg-brand-border/60">
 						{study.highlights.map((h) => (
 							<div key={h.label} className="bg-brand-zinc/40 px-3 py-4">
-								<dt className="v3-label !text-[10px]">{h.label}</dt>
-								<dd className="mt-2 font-satoshi text-[13px] font-medium leading-snug text-brand-ivory">
-									{tidy(h.value)}
-								</dd>
+								<dt className="v4-label !text-[10px]">{h.label}</dt>
+								<dd className="mt-2 font-satoshi text-[13px] font-medium leading-snug text-brand-ivory">{tidy(h.value)}</dd>
 							</div>
 						))}
 					</dl>

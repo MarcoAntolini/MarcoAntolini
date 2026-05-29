@@ -25,7 +25,7 @@ export default function CursorGlow() {
 	if (reduceMotion) return null;
 
 	return (
-		<div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+		<div className="pointer-events-none fixed inset-0 z-[2] overflow-hidden" aria-hidden="true">
 			<motion.div
 				className="absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/12 blur-[90px]"
 				style={{ left: springX, top: springY }}
