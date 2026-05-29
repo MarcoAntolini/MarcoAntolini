@@ -1,0 +1,16 @@
+{
+	"redirects": [
+		{ "source": "/craft", "destination": "/", "permanent": true },
+		{ "source": "/craft/:path*", "destination": "/:path*", "permanent": true },
+		{ "source": "/editorial", "destination": "/", "permanent": true },
+		{ "source": "/editorial/:path*", "destination": "/:path*", "permanent": true },
+		{ "source": "/bold", "destination": "/", "permanent": true },
+		{ "source": "/bold/:path*", "destination": "/:path*", "permanent": true },
+		{ "source": "/studio", "destination": "/", "permanent": true },
+		{ "source": "/studio/:path*", "destination": "/:path*", "permanent": true }
+	],
+	"rewrites": [
+		{ "source": "/dracania-archives", "destination": "https://dracania-archives.com" },
+		{ "source": "/dracania-archives/:path*", "destination": "https://dracania-archives.com/:path*" }
+	]
+}

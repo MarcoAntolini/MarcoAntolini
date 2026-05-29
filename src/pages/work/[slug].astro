@@ -1,0 +1,36 @@
+---
+import CaseStudy from "@/components/site/case-study";
+import Footer from "@/components/site/footer.astro";
+import Header from "@/components/site/header";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { caseStudies } from "@/content/case-studies";
+import { getProjectBySlug } from "@/content/projects";
+import ScrollProgress from "@/components/shared/scroll-progress";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+	return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug!);
+const caseStudy = caseStudies.find((study) => study.slug === slug);
+
+if (!project || !caseStudy) {
+	return Astro.redirect("/404");
+}
+
+const pathname = Astro.url.pathname;
+---
+
+<BaseLayout title={`${project.title} — Case study`} description={project.longDescription ?? project.description}>
+	<div class="site-grid site-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+
+	<ScrollProgress client:load />
+	<Header client:load pathname={pathname} />
+	<main class="relative z-10 min-h-screen">
+		<CaseStudy client:load slug={slug!} />
+	</main>
+	<Footer />
+</BaseLayout>
