@@ -24,19 +24,19 @@ const checks = [
 ];
 ---
 
-<BaseLayout title="Development dashboard">
-	<main class="mx-auto max-w-3xl px-4 py-12 text-zinc-100">
-		<h1 class="font-display text-3xl font-semibold">Development dashboard</h1>
-		<p class="mt-4 text-zinc-400">Local-only route. Not available in production builds.</p>
+<BaseLayout title="Development dashboard" noindex>
+	<main class="relative z-10 mx-auto max-w-3xl px-5 py-12 sm:px-8">
+		<h1 class="font-satoshi text-3xl font-bold text-brand-ivory">Development dashboard</h1>
+		<p class="mt-4 text-brand-muted">Local-only route. Not available in production builds.</p>
 
 		<section class="mt-10">
-			<h2 class="text-xl font-semibold">Environment</h2>
+			<h2 class="text-xl font-semibold text-brand-ivory">Environment</h2>
 			<ul class="mt-4 space-y-2">
 				{
 					checks.map((check) => (
-						<li class="flex justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
-							<span>{check.name}</span>
-							<span class={check.ok ? "text-emerald-400" : "text-amber-400"}>{check.ok ? "OK" : "Missing"}</span>
+						<li class="flex justify-between rounded-lg border border-brand-border bg-brand-zinc/40 px-4 py-3">
+							<span class="text-brand-ivory">{check.name}</span>
+							<span class={check.ok ? "text-brand-emerald" : "text-brand-amber"}>{check.ok ? "OK" : "Missing"}</span>
 						</li>
 					))
 				}
@@ -44,8 +44,8 @@ const checks = [
 		</section>
 
 		<section class="mt-10">
-			<h2 class="text-xl font-semibold">Contact test mode</h2>
-			<ul class="mt-4 list-disc space-y-2 pl-5 text-zinc-400">
+			<h2 class="text-xl font-semibold text-brand-ivory">Contact test mode</h2>
+			<ul class="mt-4 list-disc space-y-2 pl-5 text-brand-muted">
 				<li>Development mode: {isDevelopment ? "yes" : "no"}</li>
 				<li>CONTACT_DEV_MODE: {contactDevMode}</li>
 				<li>Log instead of send: {shouldLogContactInsteadOfSend ? "yes" : "no"}</li>
@@ -54,24 +54,21 @@ const checks = [
 		</section>
 
 		<section class="mt-10">
-			<h2 class="text-xl font-semibold">Routes</h2>
+			<h2 class="text-xl font-semibold text-brand-ivory">Routes</h2>
 			<ul class="mt-4 flex flex-wrap gap-2">
 				<li>
-					<a href="/" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">Home</a>
+					<a href="/" class="rounded-md border border-brand-border px-3 py-2 text-sm text-brand-muted hover:border-brand-emerald/50 hover:text-brand-emerald">
+						Home
+					</a>
 				</li>
 				<li>
-					<a href="/work/dracania-archives" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">
+					<a href="/work/dracania-archives" class="rounded-md border border-brand-border px-3 py-2 text-sm text-brand-muted hover:border-brand-emerald/50 hover:text-brand-emerald">
 						Case study
 					</a>
 				</li>
 				<li>
-					<a href="/#contact" class="rounded-md border border-zinc-700 px-3 py-2 text-sm hover:border-emerald-500/50">
+					<a href="/#contact" class="rounded-md border border-brand-border px-3 py-2 text-sm text-brand-muted hover:border-brand-emerald/50 hover:text-brand-emerald">
 						Test contact
-					</a>
-				</li>
-				<li>
-					<a href="/concepts" class="rounded-md border border-emerald-700/50 bg-emerald-950/30 px-3 py-2 text-sm hover:border-emerald-500/50">
-						Portfolio concepts (10)
 					</a>
 				</li>
 			</ul>

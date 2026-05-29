@@ -14,7 +14,7 @@ export type Project = {
 	featured: boolean;
 	flagship?: boolean;
 	spotlight?: boolean;
-	/** Shown in the v4 workshop slot below selected work */
+	/** Shown in the workshop slot below selected work */
 	workshop?: boolean;
 	/** Primary CTA label for workshop cards */
 	workshopCta?: string;

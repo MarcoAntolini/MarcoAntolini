@@ -1,11 +1,11 @@
 ---
-import V4CaseStudy from "@/components/v4/case-study";
-import V4Footer from "@/components/v4/footer.astro";
-import V4Header from "@/components/v4/header";
-import V4Layout from "@/layouts/V4Layout.astro";
+import CaseStudy from "@/components/site/case-study";
+import Footer from "@/components/site/footer.astro";
+import Header from "@/components/site/header";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { caseStudies } from "@/content/case-studies";
 import { getProjectBySlug } from "@/content/projects";
-import ScrollProgress from "@/components/portfolio/scroll-progress";
+import ScrollProgress from "@/components/shared/scroll-progress";
 
 export const prerender = true;
 
@@ -24,13 +24,13 @@ if (!project || !caseStudy) {
 const pathname = Astro.url.pathname;
 ---
 
-<V4Layout title={`${project.title} — Case study`} description={project.longDescription ?? project.description}>
-	<div class="v4-grid v4-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+<BaseLayout title={`${project.title} — Case study`} description={project.longDescription ?? project.description}>
+	<div class="site-grid site-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
 
 	<ScrollProgress client:load />
-	<V4Header client:load pathname={pathname} basePath="/v4" />
+	<Header client:load pathname={pathname} />
 	<main class="relative z-10 min-h-screen">
-		<V4CaseStudy client:load slug={slug!} />
+		<CaseStudy client:load slug={slug!} />
 	</main>
-	<V4Footer />
-</V4Layout>
+	<Footer />
+</BaseLayout>
