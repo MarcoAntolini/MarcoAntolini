@@ -3,19 +3,21 @@ import CaseStudy from "@/components/site/case-study";
 import Footer from "@/components/site/footer.astro";
 import Header from "@/components/site/header";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { caseStudies } from "@/content/case-studies";
+import { getCaseStudies } from "@/content/case-studies";
 import { getProjectBySlug } from "@/content/projects";
 import { getSiteCopy } from "@/content/site-copy";
 import ScrollProgress from "@/components/shared/scroll-progress";
 
 export const prerender = true;
 
+const locale = "it";
+
 export function getStaticPaths() {
-	return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+	return getCaseStudies("it").map((study) => ({ params: { slug: study.slug } }));
 }
 
 const { slug } = Astro.params;
-const locale = "en";
+const caseStudies = getCaseStudies(locale);
 const project = getProjectBySlug(slug!, locale);
 const caseStudy = caseStudies.find((study) => study.slug === slug);
 

@@ -3,31 +3,41 @@
 import ProjectIcon from "@/components/shared/project-icon";
 import { Reveal } from "@/components/site/reveal";
 import { getProjectAccent } from "@/content/project-accents";
-import { workshopProjects, type Project } from "@/content/projects";
+import { getWorkshopProjects, type Project } from "@/content/projects";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 import { tidy } from "@/lib/text";
 
-export default function Workshop() {
+type WorkshopProps = {
+	locale?: Locale;
+};
+
+export default function Workshop({ locale = "en" }: WorkshopProps) {
+	const copy = getSiteCopy(locale);
+	const workshopProjects = getWorkshopProjects(locale);
+
 	if (workshopProjects.length === 0) return null;
 
 	return (
 		<section aria-labelledby="site-workshop-heading" className="py-12 sm:py-16">
 			<Reveal>
 				<h2 id="site-workshop-heading" className="font-satoshi text-2xl font-bold tracking-tight text-brand-ivory sm:text-3xl">
-					Smaller builds and side projects
+					{copy.workshop.heading}
 				</h2>
 			</Reveal>
 
 			<div className="mt-10 grid gap-4 sm:grid-cols-2">
 				{workshopProjects.map((project, index) => (
-					<ProjectCard key={project.slug} project={project} index={index} />
+					<ProjectCard key={project.slug} project={project} index={index} locale={locale} />
 				))}
 			</div>
 		</section>
 	);
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, locale }: { project: Project; index: number; locale: Locale }) {
 	const accent = getProjectAccent(project.slug);
+	const copy = getSiteCopy(locale);
 
 	return (
 		<Reveal as="article" delay={index * 0.05}>
@@ -56,7 +66,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 						{tidy(project.longDescription ?? project.description)}
 					</p>
 
-					<ul className="mt-5 flex flex-wrap gap-2" aria-label="Stack">
+					<ul className="mt-5 flex flex-wrap gap-2" aria-label={copy.workshop.stackLabel}>
 						{project.tags.map((tag) => (
 							<li
 								key={tag}
@@ -74,7 +84,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 							rel="noopener noreferrer"
 							className={`inline-flex min-h-10 items-center gap-2 rounded-full px-5 py-2 font-satoshi text-sm font-semibold transition-colors duration-200 ${accent.primaryBtn} motion-reduce:transition-none`}
 						>
-							{project.workshopCta ?? "View project"}
+							{project.workshopCta ?? copy.workshop.viewProject}
 							<ArrowUpRight />
 						</a>
 						{project.vscode && accent.secondaryBtn ? (
@@ -84,7 +94,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 								rel="noopener noreferrer"
 								className={`inline-flex min-h-10 items-center gap-2 rounded-full border px-4 py-2 font-satoshi text-sm font-medium transition-colors duration-200 ${accent.secondaryBtn} motion-reduce:transition-none`}
 							>
-								VS Code extension
+								{copy.workshop.vscode}
 								<ArrowUpRight />
 							</a>
 						) : null}

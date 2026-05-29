@@ -1,18 +1,22 @@
 "use client";
 
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import type { Locale } from "@/lib/i18n";
 import { motion, useReducedMotion } from "framer-motion";
 
 type AvailabilityStatusProps = {
 	className?: string;
+	locale?: Locale;
 };
 
 type ResponseTimeStatusProps = {
 	className?: string;
+	locale?: Locale;
 };
 
-export default function AvailabilityStatus({ className = "" }: AvailabilityStatusProps) {
+export default function AvailabilityStatus({ className = "", locale = "en" }: AvailabilityStatusProps) {
 	const reduceMotion = useReducedMotion();
+	const profile = getProfile(locale);
 	const { label, engagement, roles } = profile.availabilityStatus;
 
 	const motionProps = !reduceMotion
@@ -42,8 +46,9 @@ export default function AvailabilityStatus({ className = "" }: AvailabilityStatu
 	);
 }
 
-export function ResponseTimeStatus({ className = "" }: ResponseTimeStatusProps) {
+export function ResponseTimeStatus({ className = "", locale = "en" }: ResponseTimeStatusProps) {
 	const reduceMotion = useReducedMotion();
+	const profile = getProfile(locale);
 	const { label, detail } = profile.responseTime;
 
 	const motionProps = !reduceMotion

@@ -3,22 +3,27 @@
 import { BrowserFrame } from "@/components/site/frame";
 import { Reveal } from "@/components/site/reveal";
 import { Stagger, StaggerItem } from "@/components/shared/motion";
-import { caseStudies, caseStudySectionOrder, getCaseStudyBySlug, type CaseStudySection, type CaseStudyTheme } from "@/content/case-studies";
+import { caseStudySectionOrder, getCaseStudies, getCaseStudyBySlug, type CaseStudySection, type CaseStudyTheme } from "@/content/case-studies";
 import { getProjectBySlug } from "@/content/projects";
+import { getSiteCopy } from "@/content/site-copy";
+import { localizedPath, type Locale } from "@/lib/i18n";
 import { tidy } from "@/lib/text";
 
 type CaseStudyProps = {
 	slug: string;
+	locale?: Locale;
 };
 
-export default function CaseStudy({ slug }: CaseStudyProps) {
-	const project = getProjectBySlug(slug);
-	const caseStudy = getCaseStudyBySlug(slug);
+export default function CaseStudy({ slug, locale = "en" }: CaseStudyProps) {
+	const project = getProjectBySlug(slug, locale);
+	const caseStudy = getCaseStudyBySlug(slug, locale);
 
 	if (!project || !caseStudy) {
 		return null;
 	}
 
+	const copy = getSiteCopy(locale);
+	const caseStudies = getCaseStudies(locale);
 	const accent = accentForTheme(caseStudy.theme);
 	const { highlights } = caseStudy;
 	const sections = [...caseStudy.sections].sort(
@@ -34,27 +39,31 @@ export default function CaseStudy({ slug }: CaseStudyProps) {
 	const outcomes = sectionById.get("outcomes");
 	const isLiveProject = project.live !== false;
 	const isExternalSecondary = caseStudy.headerSecondaryCta?.href.startsWith("http");
+	const secondaryHref =
+		caseStudy.headerSecondaryCta && !isExternalSecondary
+			? localizedPath(caseStudy.headerSecondaryCta.href, locale)
+			: caseStudy.headerSecondaryCta?.href;
 	const banner = slug === "csshub" ? "/projects/banners/csshub.png" : project.banner;
 	const currentIndex = caseStudies.findIndex((study) => study.slug === slug);
 	const nextCaseStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
-	const nextProject = nextCaseStudy ? getProjectBySlug(nextCaseStudy.slug) : null;
+	const nextProject = nextCaseStudy ? getProjectBySlug(nextCaseStudy.slug, locale) : null;
 	const nextAccent = nextCaseStudy ? accentForTheme(nextCaseStudy.theme) : accent;
 
 	return (
 		<article className="mx-auto max-w-[1180px] px-5 pb-24 pt-28 sm:px-8 sm:pt-32">
 			<Reveal>
 				<a
-					href="/#work"
+					href={localizedPath("/#work", locale)}
 					className="inline-flex min-h-11 items-center gap-2 font-space-mono text-[12px] uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-emerald motion-reduce:transition-none"
 				>
 					<ArrowLeft />
-					Back to portfolio
+					{copy.caseStudy.back}
 				</a>
 			</Reveal>
 
 			<div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
 				<Reveal>
-					<p className="site-label text-brand-emerald">Case study</p>
+					<p className="site-label text-brand-emerald">{copy.caseStudy.label}</p>
 					<h1 className="mt-4 font-satoshi text-4xl font-bold tracking-tight text-brand-ivory sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
 						{project.title}
 					</h1>
@@ -83,7 +92,7 @@ export default function CaseStudy({ slug }: CaseStudyProps) {
 						) : null}
 						{caseStudy.headerSecondaryCta ? (
 							<a
-								href={caseStudy.headerSecondaryCta.href}
+								href={secondaryHref!}
 								target={isExternalSecondary ? "_blank" : undefined}
 								rel={isExternalSecondary ? "noopener noreferrer" : undefined}
 								className="site-glass inline-flex min-h-12 items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-brand-ivory transition hover:border-brand-emerald/40 motion-reduce:transition-none"
@@ -147,7 +156,9 @@ export default function CaseStudy({ slug }: CaseStudyProps) {
 										<h2 id="stack-heading" className="font-satoshi text-2xl font-semibold tracking-tight text-brand-ivory">
 											{stack.title}
 										</h2>
-										<p className="font-space-mono text-xs text-brand-muted">{stack.items?.length ?? 0} tools</p>
+										<p className="font-space-mono text-xs text-brand-muted">
+											{stack.items?.length ?? 0} {copy.caseStudy.tools}
+										</p>
 									</div>
 									{stack.items ? <StackList items={stack.items} /> : null}
 								</section>
@@ -207,15 +218,15 @@ export default function CaseStudy({ slug }: CaseStudyProps) {
 				<Reveal className="mt-14">
 					<div className="site-frame flex flex-col items-start justify-between gap-6 rounded-2xl p-6 sm:flex-row sm:items-center sm:p-8">
 						<div>
-							<p className="site-label text-brand-emerald">Next case study</p>
+							<p className="site-label text-brand-emerald">{copy.caseStudy.next}</p>
 							<p className="mt-2 font-satoshi text-2xl font-semibold text-brand-ivory">{nextProject.title}</p>
 							<p className="mt-2 max-w-3xl text-sm leading-relaxed text-brand-muted">{tidy(nextProject.description)}</p>
 						</div>
 						<a
-							href={`/work/${nextProject.slug}`}
+							href={localizedPath(`/work/${nextProject.slug}`, locale)}
 							className={`inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition motion-reduce:transition-none ${nextAccent.button}`}
 						>
-							View case study
+							{copy.caseStudy.view}
 							<ArrowUpRight />
 						</a>
 					</div>

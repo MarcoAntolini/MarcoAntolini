@@ -1,34 +1,33 @@
 "use client";
 
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
+import { alternateLocale, localizedPath, locales, stripLocalePrefix, type Locale } from "@/lib/i18n";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState, type MouseEvent } from "react";
 
 type HeaderProps = {
 	pathname?: string;
+	locale?: Locale;
 };
 
 function scrollToTop(smooth: boolean) {
 	window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
 }
 
-const navItems = [
-	{ href: "/#work", label: "Work", sectionId: "work" },
-	{ href: "/#experience", label: "Experience", sectionId: "experience" },
-	{ href: "/#skills", label: "Skills", sectionId: "skills" },
-	{ href: "/#about", label: "About", sectionId: "about" },
-	{ href: "/#contact", label: "Contact", sectionId: "contact" },
-];
-
-export default function Header({ pathname = "/" }: HeaderProps) {
+export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<string | null>(null);
 	const reduceMotion = useReducedMotion();
-	const isHome = pathname === "/";
+	const copy = getSiteCopy(locale);
+	const profile = getProfile(locale);
+	const navItems = copy.header.nav;
+	const basePathname = stripLocalePrefix(pathname);
+	const isHome = basePathname === "/";
 
 	function navHref(item: (typeof navItems)[number]) {
-		return item.href;
+		return localizedPath(item.href, locale);
 	}
 
 	function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
@@ -36,13 +35,14 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 
 		event.preventDefault();
 		setMenuOpen(false);
+		const homePath = localizedPath("/", locale);
 		if (window.location.hash) {
-			window.history.replaceState(null, "", "/");
+			window.history.replaceState(null, "", homePath);
 		}
 		scrollToTop(!reduceMotion);
 	}
 
-	const logoHref = "/";
+	const logoHref = localizedPath("/", locale);
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 24);
@@ -122,7 +122,8 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 		? "border-brand-border/80 bg-brand-obsidian/85 shadow-[0_16px_48px_-24px_rgba(0,0,0,0.65)] backdrop-blur-xl"
 		: "border-transparent bg-transparent";
 
-	const contactHref = isHome ? "#contact" : "/#contact";
+	const contactHref = localizedPath("/#contact", locale);
+	const alternateHref = localizedPath(basePathname, alternateLocale(locale));
 
 	return (
 		<header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
@@ -135,7 +136,7 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 				<a
 					href={logoHref}
 					onClick={handleLogoClick}
-					aria-label={isHome ? "Scroll to top" : `Back to ${profile.name}`}
+					aria-label={isHome ? copy.header.logoHomeLabel : `${copy.header.logoBackLabel} ${profile.name}`}
 					className="group font-satoshi text-sm font-semibold tracking-tight whitespace-nowrap text-brand-ivory transition-colors duration-200 hover:text-brand-emerald motion-reduce:transition-none sm:text-base"
 				>
 					<span className="relative">
@@ -172,14 +173,13 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
-					<motion.a
+					<LanguageSwitch locale={locale} pathname={basePathname} label={copy.header.languageLabel} names={copy.header.languageNames} />
+					<a
 						href={contactHref}
-						className="rounded-lg bg-brand-emerald px-4 py-2 text-sm font-medium text-brand-obsidian transition hover:bg-brand-emerald/85 motion-reduce:transition-none"
-						whileHover={reduceMotion ? undefined : { scale: 1.03 }}
-						whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+						className="rounded-lg bg-brand-emerald px-4 py-2 text-sm font-medium text-brand-obsidian transition-colors duration-200 hover:bg-brand-emerald/85 motion-reduce:transition-none"
 					>
-						Hire me
-					</motion.a>
+						{copy.header.contactCta}
+					</a>
 				</div>
 
 				<button
@@ -190,7 +190,7 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 					onClick={() => setMenuOpen((open) => !open)}
 				>
 					{menuOpen ? <CloseIcon /> : <MenuIcon />}
-					<span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
+					<span className="sr-only">{menuOpen ? copy.header.closeMenu : copy.header.openMenu}</span>
 				</button>
 			</motion.div>
 
@@ -215,19 +215,67 @@ export default function Header({ pathname = "/" }: HeaderProps) {
 								</a>
 							</li>
 						))}
+						<li className="mt-2 border-t border-brand-border pt-3">
+							<div className="flex items-center justify-between gap-3 px-4 py-2">
+								<span className="font-space-mono text-[11px] uppercase tracking-[0.14em] text-brand-muted">
+									{copy.header.languageLabel}
+								</span>
+								<a
+									href={alternateHref}
+									className="rounded-full border border-brand-border px-3 py-1.5 font-space-mono text-[11px] uppercase tracking-[0.14em] text-brand-ivory transition hover:border-brand-emerald/50 hover:text-brand-emerald"
+									onClick={() => setMenuOpen(false)}
+								>
+									{alternateLocale(locale).toUpperCase()}
+								</a>
+							</div>
+						</li>
 						<li className="mt-2 border-t border-brand-border pt-2">
 							<a
 								href={contactHref}
 								className="block rounded-lg bg-brand-emerald px-4 py-3 text-center font-medium text-brand-obsidian"
 								onClick={() => setMenuOpen(false)}
 							>
-								Get in touch
+								{copy.header.mobileCta}
 							</a>
 						</li>
 					</ul>
 				</motion.nav>
 			) : null}
 		</header>
+	);
+}
+
+function LanguageSwitch({
+	locale,
+	pathname,
+	label,
+	names,
+}: {
+	locale: Locale;
+	pathname: string;
+	label: string;
+	names: Record<Locale, string>;
+}) {
+	return (
+		<div className="flex rounded-lg border border-brand-border bg-brand-zinc/45 p-1" role="group" aria-label={label}>
+			{locales.map((option) => {
+				const isActive = option === locale;
+
+				return (
+					<a
+						key={option}
+						href={localizedPath(pathname, option)}
+						aria-current={isActive ? "true" : undefined}
+						aria-label={names[option]}
+						className={`rounded-md px-2.5 py-1.5 font-space-mono text-[11px] uppercase tracking-[0.14em] transition motion-reduce:transition-none ${
+							isActive ? "bg-brand-emerald text-brand-obsidian" : "text-brand-muted hover:bg-brand-zinc/70 hover:text-brand-ivory"
+						}`}
+					>
+						{option}
+					</a>
+				);
+			})}
+		</div>
 	);
 }
 

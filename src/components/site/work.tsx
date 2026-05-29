@@ -5,35 +5,45 @@ import ProjectImage from "@/components/shared/project-image";
 import { Reveal } from "@/components/site/reveal";
 import { getCaseStudyBySlug, hasCaseStudy } from "@/content/case-studies";
 import { getProjectAccent } from "@/content/project-accents";
-import { highlightProjects, type Project } from "@/content/projects";
+import { getHighlightProjects, type Project } from "@/content/projects";
+import { getSiteCopy } from "@/content/site-copy";
+import { localizedPath, type Locale } from "@/lib/i18n";
 import { tidy } from "@/lib/text";
 
-export default function Work() {
+type WorkProps = {
+	locale?: Locale;
+};
+
+export default function Work({ locale = "en" }: WorkProps) {
+	const copy = getSiteCopy(locale);
+	const highlightProjects = getHighlightProjects(locale);
+
 	return (
 		<section id="work" className="scroll-mt-24 border-t border-brand-border/60 py-20 sm:py-28">
 			<Reveal>
 				<h2 className="max-w-2xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.6rem] sm:leading-[1.05]">
-					Products shipped to real users.
+					{copy.work.heading}
 				</h2>
 			</Reveal>
 
 			<div className="mt-14 space-y-10 sm:space-y-12">
 				{highlightProjects.map((project, index) => (
-					<HighlightProjectCard key={project.slug} project={project} index={index} />
+					<HighlightProjectCard key={project.slug} project={project} index={index} locale={locale} />
 				))}
 			</div>
 		</section>
 	);
 }
 
-function HighlightProjectCard({ project, index }: { project: Project; index: number }) {
+function HighlightProjectCard({ project, index, locale }: { project: Project; index: number; locale: Locale }) {
 	const accent = getProjectAccent(project.slug);
-	const study = getCaseStudyBySlug(project.slug);
-	const hasStudy = hasCaseStudy(project.slug);
+	const copy = getSiteCopy(locale);
+	const study = getCaseStudyBySlug(project.slug, locale);
+	const hasStudy = hasCaseStudy(project.slug, locale);
 	const isLiveProject = project.live !== false;
-	const caseStudyHref = `/work/${project.slug}`;
+	const caseStudyHref = localizedPath(`/work/${project.slug}`, locale);
 	const primaryHref = isLiveProject ? project.href : hasStudy ? caseStudyHref : project.github ?? project.href;
-	const primaryLabel = isLiveProject ? study?.primaryCtaLabel ?? "Visit" : hasStudy ? "Read case study" : "View project";
+	const primaryLabel = isLiveProject ? study?.primaryCtaLabel ?? copy.work.visit : hasStudy ? copy.work.readCaseStudy : copy.work.viewProject;
 	const primaryIsExternal = primaryHref.startsWith("http");
 
 	return (
@@ -89,7 +99,7 @@ function HighlightProjectCard({ project, index }: { project: Project; index: num
 									href={caseStudyHref}
 									className={`inline-flex min-h-11 items-center gap-2 rounded-full border bg-brand-obsidian/30 px-5 py-2.5 font-satoshi text-sm font-medium text-brand-ivory backdrop-blur-sm transition-colors duration-200 ${accent.caseStudyRing} motion-reduce:transition-none`}
 								>
-									Read case study
+									{copy.work.readCaseStudy}
 									<ArrowDiagonal />
 								</a>
 							) : project.github ? (
@@ -109,7 +119,7 @@ function HighlightProjectCard({ project, index }: { project: Project; index: num
 					<div className={`overflow-hidden rounded-2xl border ${accent.imageBorder} bg-brand-obsidian/60`}>
 						<ProjectImage
 							src={project.banner}
-							alt={`${project.title} preview`}
+							alt={`${project.title} ${copy.work.previewAlt}`}
 							className="aspect-[16/10] w-full opacity-95"
 							sizes="(max-width: 1024px) 100vw, 50vw"
 							priority={project.flagship}

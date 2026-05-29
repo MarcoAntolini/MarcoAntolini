@@ -1,18 +1,21 @@
 "use client";
 
 import { Reveal } from "@/components/site/reveal";
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 import { tidy } from "@/lib/text";
 import { motion, useReducedMotion } from "framer-motion";
 import { Fragment } from "react";
 
-const building = [
-	"shipping web & mobile interfaces",
-	"open-source tooling & side projects",
-] as const;
+type AboutProps = {
+	locale?: Locale;
+};
 
-export default function About() {
+export default function About({ locale = "en" }: AboutProps) {
 	const reduceMotion = useReducedMotion();
+	const profile = getProfile(locale);
+	const copy = getSiteCopy(locale);
 	const rise = (delay = 0) =>
 		reduceMotion
 			? { initial: false as const, whileInView: { opacity: 1, y: 0 } }
@@ -34,7 +37,7 @@ export default function About() {
 			<div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
 				<Reveal>
 					<h2 className="max-w-xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.4rem] sm:leading-[1.08]">
-						I'd rather ship than theorize.
+						{copy.about.heading}
 					</h2>
 					<div className="mt-7 space-y-5">
 						{profile.about.map((paragraph) => (
@@ -45,7 +48,7 @@ export default function About() {
 					</div>
 				</Reveal>
 
-				<motion.div {...rise(0.1)} aria-label="Current activity and availability">
+				<motion.div {...rise(0.1)} aria-label={copy.about.activityLabel}>
 					<div className="site-frame overflow-hidden rounded-xl">
 						<div className="flex items-center gap-1.5 border-b border-brand-border bg-brand-zinc/70 px-4 py-2.5" aria-hidden="true">
 							<span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/70" />
@@ -55,15 +58,17 @@ export default function About() {
 						</div>
 						<pre className="overflow-x-auto px-4 py-4 font-space-mono text-[12px] leading-[1.75] text-brand-muted sm:text-[13px]">
 							<code>
-								{prompt} activity{"\n"}
-								{building.map((line) => (
+								{prompt} {copy.about.activityCommand}
+								{"\n"}
+								{copy.about.building.map((line) => (
 									<Fragment key={line}>
 										<span className="text-brand-ivory/90">→</span> {line}
 										{"\n"}
 									</Fragment>
 								))}
 								{"\n"}
-								{prompt} status{"\n"}
+								{prompt} {copy.about.statusCommand}
+								{"\n"}
 								<span className="text-brand-emerald">● {profile.availabilityStatus.label.toLowerCase()}</span>
 								{" — "}
 								{profile.availabilityStatus.engagement.toLowerCase()}

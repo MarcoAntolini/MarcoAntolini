@@ -1,14 +1,23 @@
 "use client";
 
 import { Reveal } from "@/components/site/reveal";
-import { skillGroups } from "@/content/skills";
+import { getSkillGroups } from "@/content/skills";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 
-export default function Skills() {
+type SkillsProps = {
+	locale?: Locale;
+};
+
+export default function Skills({ locale = "en" }: SkillsProps) {
+	const copy = getSiteCopy(locale);
+	const skillGroups = getSkillGroups(locale);
+
 	return (
 		<section id="skills" className="scroll-mt-24 border-t border-brand-border/60 py-20 sm:py-28" aria-labelledby="site-skills-heading">
 			<Reveal>
 				<h2 id="site-skills-heading" className="max-w-xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.4rem] sm:leading-[1.08]">
-					Skills and stack
+					{copy.skills.heading}
 				</h2>
 			</Reveal>
 

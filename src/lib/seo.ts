@@ -1,4 +1,6 @@
-import { profile } from "@/content/profile";
+import { getProfile, profile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://marcoantolini.com";
 
@@ -28,14 +30,17 @@ export const siteMetadata = {
 	},
 };
 
-export function personJsonLd() {
+export function personJsonLd(locale: Locale = "en") {
+	const localizedProfile = getProfile(locale);
+	const copy = getSiteCopy(locale);
+
 	return {
 		"@context": "https://schema.org",
 		"@type": "Person",
-		name: profile.name,
+		name: localizedProfile.name,
 		url: siteUrl,
-		jobTitle: "Frontend & mobile engineer",
-		sameAs: [profile.github, profile.linkedin],
-		email: `mailto:${profile.email}`,
+		jobTitle: copy.meta.title,
+		sameAs: [localizedProfile.github, localizedProfile.linkedin],
+		email: `mailto:${localizedProfile.email}`,
 	};
 }

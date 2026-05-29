@@ -2,13 +2,21 @@
 
 import { Stagger, StaggerItem } from "@/components/shared/motion";
 import { Reveal } from "@/components/site/reveal";
-import { experience } from "@/content/experience";
+import { getExperience } from "@/content/experience";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function Experience() {
+type ExperienceProps = {
+	locale?: Locale;
+};
+
+export default function Experience({ locale = "en" }: ExperienceProps) {
 	const reduceMotion = useReducedMotion();
 	const containerRef = useRef<HTMLDivElement>(null);
+	const copy = getSiteCopy(locale);
+	const experience = getExperience(locale);
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
 		offset: ["start 0.8", "end 0.4"],
@@ -19,7 +27,7 @@ export default function Experience() {
 		<section id="experience" className="scroll-mt-24 border-t border-brand-border/60 py-20 sm:py-28" aria-labelledby="site-experience-heading">
 			<Reveal>
 				<h2 id="site-experience-heading" className="max-w-xl font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.4rem] sm:leading-[1.08]">
-					Where I&apos;ve been building
+					{copy.experience.heading}
 				</h2>
 			</Reveal>
 

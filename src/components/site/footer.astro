@@ -1,9 +1,18 @@
 ---
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
+
+export interface Props {
+	locale?: Locale;
+}
+
 const year = new Date().getFullYear();
+const { locale = "en" } = Astro.props;
+const copy = getSiteCopy(locale);
 ---
 
 <footer class="border-t border-brand-border/60">
 	<p class="mx-auto max-w-[1180px] px-5 py-5 font-space-mono text-[11px] text-brand-muted/70 sm:px-8">
-		&copy; {year} Marco Antolini / Forl&igrave;-Cesena, Italy
+		&copy; {year} Marco Antolini / {copy.footer.location}
 	</p>
 </footer>

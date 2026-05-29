@@ -3,7 +3,9 @@ import AmbientBackground from "@/components/site/ambient-background.astro";
 import CursorGlow from "@/components/shared/cursor-glow";
 import AccentSwitcher from "@/components/site/accent-switcher";
 import ToastProvider from "@/components/toast-provider";
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
+import { defaultLocale, localizedPath, locales, stripLocalePrefix, type Locale } from "@/lib/i18n";
 import { absoluteUrl, personJsonLd } from "@/lib/seo";
 import { tidy } from "@/lib/text";
 import "@/styles/site.css";
@@ -12,14 +14,19 @@ export interface Props {
 	title?: string;
 	description?: string;
 	noindex?: boolean;
+	locale?: Locale;
 }
 
-const defaultTitle = `${profile.name} · Frontend & mobile engineer`;
+const { locale = defaultLocale } = Astro.props;
+const profile = getProfile(locale);
+const copy = getSiteCopy(locale);
+const defaultTitle = `${profile.name} · ${copy.meta.title}`;
 const defaultDescription = tidy(profile.heroLine);
 
 const { title = defaultTitle, description = defaultDescription, noindex = false } = Astro.props;
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
-const jsonLd = JSON.stringify(personJsonLd());
+const alternatePath = stripLocalePrefix(Astro.url.pathname);
+const jsonLd = JSON.stringify(personJsonLd(locale));
 const accentBootScript = `
 (() => {
 	try {
@@ -33,16 +40,21 @@ const accentBootScript = `
 ---
 
 <!doctype html>
-<html lang="en" translate="no" class="notranslate">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="google" content="notranslate" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
 		<link rel="canonical" href={canonicalUrl} />
+		{
+			locales.map((alternateLocale) => (
+				<link rel="alternate" hreflang={alternateLocale} href={absoluteUrl(localizedPath(alternatePath, alternateLocale))} />
+			))
+		}
+		<link rel="alternate" hreflang="x-default" href={absoluteUrl(localizedPath(alternatePath, defaultLocale))} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -66,7 +78,7 @@ const accentBootScript = `
 			href="#main"
 			class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-brand-emerald focus:px-4 focus:py-2 focus:font-satoshi focus:text-sm focus:font-semibold focus:text-brand-obsidian"
 		>
-			Skip to content
+			{copy.skipToContent}
 		</a>
 		<AmbientBackground />
 		<CursorGlow client:load />

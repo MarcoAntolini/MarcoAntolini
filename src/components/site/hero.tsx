@@ -2,17 +2,25 @@
 
 import { TextReveal } from "@/components/shared/motion";
 import AvailabilityStatus from "@/components/availability-status";
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
+import type { Locale } from "@/lib/i18n";
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function Hero() {
+type HeroProps = {
+	locale?: Locale;
+};
+
+export default function Hero({ locale = "en" }: HeroProps) {
 	const reduceMotion = useReducedMotion();
+	const profile = getProfile(locale);
+	const copy = getSiteCopy(locale);
 
 	return (
 		<section className="relative flex min-h-[100dvh] flex-col justify-center pt-24 pb-14 sm:pt-28">
 			<div className="grid items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
 				<div>
-					<AvailabilityStatus />
+					<AvailabilityStatus locale={locale} />
 
 					<motion.h1
 						className="mt-7 overflow-visible font-satoshi text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
@@ -40,7 +48,7 @@ export default function Hero() {
 							href="#contact"
 							className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-brand-obsidian transition-colors duration-200 hover:bg-brand-emerald/85 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
 						>
-							Start a conversation
+							{copy.hero.primaryCta}
 							<span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-obsidian/10">
 								<ArrowIcon />
 							</span>
@@ -85,7 +93,7 @@ export default function Hero() {
 							<div className="relative aspect-square w-44 sm:w-52">
 								<img
 									src={`https://github.com/${profile.githubUsername}.png`}
-									alt={`Portrait of ${profile.name}`}
+									alt={`${copy.hero.portraitAlt} ${profile.name}`}
 									width={208}
 									height={208}
 									loading="eager"

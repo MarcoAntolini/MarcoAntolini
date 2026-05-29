@@ -2,20 +2,28 @@
 
 import { ResponseTimeStatus } from "@/components/availability-status";
 import { Reveal } from "@/components/site/reveal";
-import { profile } from "@/content/profile";
+import { getProfile } from "@/content/profile";
+import { getSiteCopy } from "@/content/site-copy";
 import { turnstileSiteKey } from "@/lib/contact/client";
+import type { Locale } from "@/lib/i18n";
 import { tidy } from "@/lib/text";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function Contact() {
+type ContactProps = {
+	locale?: Locale;
+};
+
+export default function Contact({ locale = "en" }: ContactProps) {
 	const [formLoadedAt, setFormLoadedAt] = useState("");
 	const [turnstileToken, setTurnstileToken] = useState("");
 	const [statusMessage, setStatusMessage] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [showTurnstile, setShowTurnstile] = useState(false);
 	const sectionRef = useRef<HTMLElement>(null);
+	const profile = getProfile(locale);
+	const copy = getSiteCopy(locale);
 
 	useEffect(() => {
 		setFormLoadedAt(String(Date.now()));
@@ -39,7 +47,7 @@ export default function Contact() {
 
 	async function handleSubmit(formData: FormData) {
 		setIsSubmitting(true);
-		setStatusMessage("Sending your message…");
+		setStatusMessage(copy.contact.sendingStatus);
 		formData.set("formLoadedAt", formLoadedAt);
 		formData.set("turnstileToken", turnstileToken);
 
@@ -54,7 +62,7 @@ export default function Contact() {
 			return;
 		}
 
-		const success = "Message sent. I'll get back to you soon.";
+		const success = copy.contact.success;
 		setStatusMessage(success);
 		toast.success(success);
 		(sectionRef.current?.querySelector("form") as HTMLFormElement | null)?.reset();
@@ -77,13 +85,13 @@ export default function Contact() {
 						id="site-contact-heading"
 						className="font-satoshi text-3xl font-bold tracking-tight text-brand-ivory sm:text-[2.6rem] sm:leading-[1.05]"
 					>
-						Let&apos;s build something together.
+						{copy.contact.heading}
 					</h2>
 					<p className="mt-5 max-w-md text-base leading-relaxed text-brand-muted">
-						{tidy(profile.availability)} Send a message or reach out on LinkedIn. I reply to every serious inquiry.
+						{tidy(profile.availability)} {copy.contact.introSuffix}
 					</p>
 
-					<ResponseTimeStatus className="mt-8" />
+					<ResponseTimeStatus className="mt-8" locale={locale} />
 
 					<div className="mt-8 space-y-3">
 						<a
@@ -100,7 +108,7 @@ export default function Contact() {
 							className="flex items-center gap-3 rounded-xl border border-brand-border bg-brand-zinc/40 px-5 py-4 text-brand-muted transition-colors hover:border-brand-emerald/40 hover:text-brand-emerald motion-reduce:transition-none"
 						>
 							<LinkedInIcon />
-							<span className="text-sm">LinkedIn profile</span>
+							<span className="text-sm">{copy.contact.linkedinLabel}</span>
 						</a>
 					</div>
 				</Reveal>
@@ -127,7 +135,7 @@ export default function Contact() {
 
 						<div>
 							<label htmlFor="site-senderEmail" className="mb-2 block font-satoshi text-sm font-medium text-brand-ivory">
-								Your email
+								{copy.contact.emailLabel}
 							</label>
 							<input
 								id="site-senderEmail"
@@ -136,14 +144,14 @@ export default function Contact() {
 								required
 								maxLength={254}
 								autoComplete="email"
-								placeholder="you@company.com"
+								placeholder={copy.contact.emailPlaceholder}
 								className={inputClass}
 							/>
 						</div>
 
 						<div>
 							<label htmlFor="site-message" className="mb-2 block font-satoshi text-sm font-medium text-brand-ivory">
-								Message
+								{copy.contact.messageLabel}
 							</label>
 							<textarea
 								id="site-message"
@@ -152,7 +160,7 @@ export default function Contact() {
 								minLength={10}
 								maxLength={5000}
 								rows={6}
-								placeholder="What are you building, and how can I help?"
+								placeholder={copy.contact.messagePlaceholder}
 								className={`${inputClass} resize-y`}
 							/>
 						</div>
@@ -173,7 +181,7 @@ export default function Contact() {
 							disabled={isSubmitting || !turnstileToken}
 							className="min-h-12 rounded-xl bg-brand-emerald px-6 py-3 font-satoshi text-base font-semibold text-brand-obsidian shadow-lg shadow-brand-emerald/20 transition-colors hover:bg-brand-emerald/85 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
 						>
-							{isSubmitting ? "Sending…" : "Send message"}
+							{isSubmitting ? copy.contact.submitting : copy.contact.submit}
 						</button>
 
 						<p role="status" aria-live="polite" className="text-sm text-brand-muted">
