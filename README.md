@@ -22,35 +22,39 @@
 
 ## 🔭 Currently
 
-- 🔨 &nbsp;**Building** &nbsp;→&nbsp; CssHub — a Chrome extension that links CSSBattle challenges to a GitHub repository
+- 🔨 &nbsp;**Building** &nbsp;→&nbsp; Ultimate Tic-Tac-Toe — a web app that lets you play an hardcore version of Tic-Tac-Toe with other players
+- 🔨 &nbsp;**Building** &nbsp;→&nbsp; PikoDesk — a productivity app for macOS that lets you manage your tasks and projects
 
 ## 🚀 Featured Projects
 
 <p align="center">
- <a href="https://github.com/MarcoAntolini/ts-hover-prettify">
-  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=ts-hover-prettify&theme=tokyonight&hide_border=true" alt="ts-hover-prettify" />
+ <a href="https://github.com/MarcoAntolini/CSSHub">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=CSSHub&theme=tokyonight&hide_border=true" alt="CSSHub" />
  </a>
  <a href="https://github.com/MarcoAntolini/dracania-archives">
   <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=dracania-archives&theme=tokyonight&hide_border=true" alt="dracania-archives" />
  </a>
- <a href="https://github.com/MarcoAntolini/SchoolBuddy">
-  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=SchoolBuddy&theme=tokyonight&hide_border=true" alt="SchoolBuddy" />
+ <a href="https://github.com/MarcoAntolini/ts-hover-prettify">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=ts-hover-prettify&theme=tokyonight&hide_border=true" alt="ts-hover-prettify" />
  </a>
- <a href="https://github.com/MarcoAntolini/GymDashboard">
-  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=GymDashboard&theme=tokyonight&hide_border=true" alt="GymDashboard" />
+ <a href="https://github.com/MarcoAntolini/Fated-Encounters">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=MarcoAntolini&repo=Fated-Encounters&theme=tokyonight&hide_border=true" alt="Fated-Encounters" />
  </a>
 </p>
 
 ## 🛠 Tech Stack
 
 <p align="center">
- <img src="https://skillicons.dev/icons?i=ts,js,py,java,swift,cpp&theme=dark" alt="Languages" />
+ <img src="https://skillicons.dev/icons?i=react,nextjs,astro,ts,tailwind,html,css&theme=dark" alt="Frontend and mobile: React, Next.js, Astro, TypeScript, Tailwind CSS, shadcn/ui, HTML and CSS" />
 </p>
 <p align="center">
- <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,nodejs,express&theme=dark" alt="Frontend & Backend" />
+ <img src="https://skillicons.dev/icons?i=nodejs,express,prisma,py,flask,django,php,mysql,firebase&theme=dark" alt="Backend and data: Node.js, Express, Prisma, Python, Flask, Django, PHP, MySQL, Firebase, Stripe and Convex" />
 </p>
 <p align="center">
- <img src="https://skillicons.dev/icons?i=flutter,mongodb,mysql,docker,arduino,git,github&theme=dark" alt="Mobile, DB & Tools" />
+ <img src="https://skillicons.dev/icons?i=git,vscode,vercel,arduino&theme=dark" alt="Tools and platforms: Git, Chrome extensions, VS Code extensions, Vercel, REST APIs, Arduino and IoT" />
+</p>
+<p align="center">
+ <img src="https://skillicons.dev/icons?i=ts,js,java,py,cs,cpp,kotlin,swift,lua&theme=dark" alt="Languages: TypeScript, JavaScript, Java, Python, C#, C/C++, Kotlin, Swift and Lua" />
 </p>
 
 ## 📊 GitHub Stats

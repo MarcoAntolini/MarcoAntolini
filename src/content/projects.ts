@@ -33,8 +33,8 @@ export const projectsByLocale = {
 			longDescription:
 				"Dracania Archives was a community web app for Drakensang Online that helped players search items, explore builds, and access useful game information in one place. It was designed around the way active players plan, compare, and improve their characters.",
 			tags: ["Next.js", "TypeScript", "Convex", "Vercel", "Stripe"],
-			icon: "/projects/icons/dracania-archives.png",
-			banner: "/projects/banners/dracania-archives.png",
+			icon: "/projects/icons/dracania-archives.webp",
+			banner: "/projects/banners/dracania-archives.webp",
 			href: "https://dracania-archives.com",
 			github: "https://github.com/MarcoAntolini",
 			live: false,
@@ -49,8 +49,8 @@ export const projectsByLocale = {
 			longDescription:
 				"CssHub is an open-source Chrome extension that automatically saves CSSBattle solutions directly to a GitHub repository you control. It removes the copy-paste step, keeps your progress backed up, and is available on the Chrome Web Store.",
 			tags: ["Chrome Extension", "TypeScript", "GitHub API", "OAuth", "Manifest V3"],
-			icon: "/projects/icons/csshub.png",
-			banner: "/projects/banners/csshub.png",
+			icon: "/projects/icons/csshub.webp",
+			banner: "/projects/banners/csshub.webp",
 			href: "https://chromewebstore.google.com/detail/CssHub/oakkijoinjkdhcgnpnmnpjkmpdekajid",
 			github: "https://github.com/MarcoAntolini/CSSHub",
 			featured: true,
@@ -63,7 +63,7 @@ export const projectsByLocale = {
 			longDescription:
 				"A Hades II mod that gives you more control over NPC encounters — so you can shape who shows up during a run.",
 			tags: ["Hades II mod", "Lua", "Thunderstore"],
-			icon: "/projects/icons/fated-encounters.png",
+			icon: "/projects/icons/fated-encounters.webp",
 			banner: "/projects/banners/fated-encounters.png",
 			href: "https://thunderstore.io/c/hades-ii/p/MarcoAntolini/FatedEncounters/",
 			github: "https://github.com/MarcoAntolini/Fated-Encounters",
@@ -78,7 +78,7 @@ export const projectsByLocale = {
 			longDescription:
 				"Open-source VS Code extension and npm package that formats dense TypeScript hover types into readable, indented blocks so you spend less time decoding signatures.",
 			tags: ["TypeScript", "VS Code extension", "npm package"],
-			icon: "/projects/icons/ts-hover-prettify.png",
+			icon: "/projects/icons/ts-hover-prettify.webp",
 			banner: "/projects/banners/ts-hover.svg",
 			href: "https://www.npmjs.com/package/ts-hover-prettify",
 			github: "https://github.com/MarcoAntolini/ts-hover-prettify",
@@ -97,8 +97,8 @@ export const projectsByLocale = {
 			longDescription:
 				"Dracania Archives era una web app community per Drakensang Online che aiutava i giocatori a cercare oggetti, esplorare build e trovare informazioni utili in un unico posto. È stata progettata intorno al modo in cui i player attivi pianificano, confrontano e migliorano i propri personaggi.",
 			tags: ["Next.js", "TypeScript", "Convex", "Vercel", "Stripe"],
-			icon: "/projects/icons/dracania-archives.png",
-			banner: "/projects/banners/dracania-archives.png",
+			icon: "/projects/icons/dracania-archives.webp",
+			banner: "/projects/banners/dracania-archives.webp",
 			href: "https://dracania-archives.com",
 			github: "https://github.com/MarcoAntolini",
 			live: false,
@@ -113,8 +113,8 @@ export const projectsByLocale = {
 			longDescription:
 				"CssHub è un'estensione Chrome open source che salva automaticamente le soluzioni CSSBattle direttamente in una repository GitHub sotto il tuo controllo. Elimina il copia-incolla, mantiene il progresso salvato ed è disponibile sul Chrome Web Store.",
 			tags: ["Chrome Extension", "TypeScript", "GitHub API", "OAuth", "Manifest V3"],
-			icon: "/projects/icons/csshub.png",
-			banner: "/projects/banners/csshub.png",
+			icon: "/projects/icons/csshub.webp",
+			banner: "/projects/banners/csshub.webp",
 			href: "https://chromewebstore.google.com/detail/CssHub/oakkijoinjkdhcgnpnmnpjkmpdekajid",
 			github: "https://github.com/MarcoAntolini/CSSHub",
 			featured: true,
@@ -127,7 +127,7 @@ export const projectsByLocale = {
 			longDescription:
 				"Una mod per Hades II che dà più controllo sugli incontri con gli NPC, così puoi influenzare chi appare durante una run.",
 			tags: ["Hades II mod", "Lua", "Thunderstore"],
-			icon: "/projects/icons/fated-encounters.png",
+			icon: "/projects/icons/fated-encounters.webp",
 			banner: "/projects/banners/fated-encounters.png",
 			href: "https://thunderstore.io/c/hades-ii/p/MarcoAntolini/FatedEncounters/",
 			github: "https://github.com/MarcoAntolini/Fated-Encounters",
@@ -142,7 +142,7 @@ export const projectsByLocale = {
 			longDescription:
 				"Estensione VS Code e pacchetto npm open source che formatta tipi TypeScript densi in blocchi indentati e leggibili, così passi meno tempo a decifrare le signature.",
 			tags: ["TypeScript", "VS Code extension", "npm package"],
-			icon: "/projects/icons/ts-hover-prettify.png",
+			icon: "/projects/icons/ts-hover-prettify.webp",
 			banner: "/projects/banners/ts-hover.svg",
 			href: "https://www.npmjs.com/package/ts-hover-prettify",
 			github: "https://github.com/MarcoAntolini/ts-hover-prettify",

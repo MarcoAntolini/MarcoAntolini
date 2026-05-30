@@ -46,7 +46,7 @@ export default function AccentSwitcher() {
 
 	return (
 		<section
-			className="fixed bottom-4 left-1/2 z-[60] w-[calc(100%-2rem)] max-w-[420px] -translate-x-1/2 rounded-2xl border border-brand-border/80 bg-brand-obsidian/88 px-3 py-3 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.85)] backdrop-blur-xl sm:bottom-5 sm:left-auto sm:right-5 sm:w-auto sm:translate-x-0"
+			className="fixed bottom-5 right-5 z-[60] hidden rounded-2xl border border-brand-border/80 bg-brand-obsidian/88 px-3 py-3 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.85)] backdrop-blur-xl sm:block"
 			aria-label="Accent theme picker"
 		>
 			<div className="flex items-center justify-between gap-3">

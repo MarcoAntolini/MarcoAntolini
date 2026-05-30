@@ -210,6 +210,28 @@ body {
 	animation: site-pulse 3.2s ease-in-out infinite;
 }
 
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
+	.site-ambient-background,
+	.site-noise {
+		display: none;
+	}
+
+	.site-grid {
+		background-size: 88px 88px;
+	}
+
+	.site-glass {
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+
+	.site-animate-float-slow,
+	.site-animate-pulse-glow,
+	.site-animate-pulse {
+		animation: none;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;

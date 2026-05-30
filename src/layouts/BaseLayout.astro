@@ -3,6 +3,8 @@ import AmbientBackground from "@/components/site/ambient-background.astro";
 import CursorGlow from "@/components/shared/cursor-glow";
 import AccentSwitcher from "@/components/site/accent-switcher";
 import ToastProvider from "@/components/toast-provider";
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { getProfile } from "@/content/profile";
 import { getSiteCopy } from "@/content/site-copy";
 import { defaultLocale, localizedPath, locales, stripLocalePrefix, type Locale } from "@/lib/i18n";
@@ -71,6 +73,8 @@ const accentBootScript = `
 			rel="stylesheet"
 		/>
 		<script is:inline set:html={accentBootScript}></script>
+		<Analytics />
+		<SpeedInsights />
 	</head>
 	<body class="min-h-screen bg-brand-obsidian font-satoshi text-brand-ivory antialiased">
 		<script type="application/ld+json" set:html={jsonLd} />
@@ -81,10 +85,10 @@ const accentBootScript = `
 			{copy.skipToContent}
 		</a>
 		<AmbientBackground />
-		<CursorGlow client:load />
-		<AccentSwitcher client:load />
+		<CursorGlow client:media="(hover: hover) and (pointer: fine)" />
+		<AccentSwitcher client:media="(min-width: 640px)" />
 		<slot />
 		<div class="site-noise pointer-events-none fixed inset-0 z-[1] opacity-55" aria-hidden="true"></div>
-		<ToastProvider client:load />
+		<ToastProvider client:idle />
 	</body>
 </html>
