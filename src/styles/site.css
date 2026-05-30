@@ -4,7 +4,7 @@
 
 /*
  * Site identity layer — unified MA brand kit.
- * Satoshi display + Space Mono interface detail. Accent preview themes.
+ * Satoshi display + Space Mono interface detail.
  */
 
 :root {
@@ -20,30 +20,6 @@
 	--brand-emerald: 52 211 153;
 	--brand-teal: 15 118 110;
 	--brand-amber: 245 158 11;
-}
-
-html[data-accent-theme="cyan"] {
-	--brand-emerald: 34 211 238;
-	--brand-teal: 14 116 144;
-	--brand-amber: 251 191 36;
-}
-
-html[data-accent-theme="violet"] {
-	--brand-emerald: 167 139 250;
-	--brand-teal: 109 40 217;
-	--brand-amber: 251 146 60;
-}
-
-html[data-accent-theme="coral"] {
-	--brand-emerald: 251 113 133;
-	--brand-teal: 190 18 60;
-	--brand-amber: 250 204 21;
-}
-
-html[data-accent-theme="gold"] {
-	--brand-emerald: 245 158 11;
-	--brand-teal: 180 83 9;
-	--brand-amber: 52 211 153;
 }
 
 html {

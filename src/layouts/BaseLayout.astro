@@ -1,7 +1,6 @@
 ---
 import AmbientBackground from "@/components/site/ambient-background.astro";
 import CursorGlow from "@/components/shared/cursor-glow";
-import AccentSwitcher from "@/components/site/accent-switcher";
 import ToastProvider from "@/components/toast-provider";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -29,16 +28,6 @@ const { title = defaultTitle, description = defaultDescription, noindex = false 
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const alternatePath = stripLocalePrefix(Astro.url.pathname);
 const jsonLd = JSON.stringify(personJsonLd(locale));
-const accentBootScript = `
-(() => {
-	try {
-		const theme = localStorage.getItem("accent-theme");
-		if (theme && theme !== "emerald") {
-			document.documentElement.dataset.accentTheme = theme;
-		}
-	} catch {}
-})();
-`;
 ---
 
 <!doctype html>
@@ -72,7 +61,6 @@ const accentBootScript = `
 			href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
 			rel="stylesheet"
 		/>
-		<script is:inline set:html={accentBootScript}></script>
 		<Analytics />
 		<SpeedInsights />
 	</head>
@@ -86,7 +74,6 @@ const accentBootScript = `
 		</a>
 		<AmbientBackground />
 		<CursorGlow client:media="(hover: hover) and (pointer: fine)" />
-		<AccentSwitcher client:media="(min-width: 640px)" />
 		<slot />
 		<div class="site-noise pointer-events-none fixed inset-0 z-[1] opacity-55" aria-hidden="true"></div>
 		<ToastProvider client:idle />
