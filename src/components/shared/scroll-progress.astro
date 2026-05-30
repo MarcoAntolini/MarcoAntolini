@@ -1,0 +1,26 @@
+<div class="site-scroll-progress" aria-hidden="true"></div>
+
+<script>
+	const progress = document.querySelector<HTMLElement>(".site-scroll-progress");
+
+	if (progress && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		let ticking = false;
+
+		const update = () => {
+			const max = document.documentElement.scrollHeight - window.innerHeight;
+			const value = max > 0 ? window.scrollY / max : 0;
+			progress.style.transform = `scaleX(${Math.min(1, Math.max(0, value))})`;
+			ticking = false;
+		};
+
+		const requestUpdate = () => {
+			if (ticking) return;
+			ticking = true;
+			window.requestAnimationFrame(update);
+		};
+
+		update();
+		window.addEventListener("scroll", requestUpdate, { passive: true });
+		window.addEventListener("resize", requestUpdate);
+	}
+</script>

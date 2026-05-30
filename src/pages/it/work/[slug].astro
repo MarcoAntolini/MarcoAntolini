@@ -6,7 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCaseStudies } from "@/content/case-studies";
 import { getProjectBySlug } from "@/content/projects";
 import { getSiteCopy } from "@/content/site-copy";
-import ScrollProgress from "@/components/shared/scroll-progress";
+import ScrollProgress from "@/components/shared/scroll-progress.astro";
 
 export const prerender = true;
 
@@ -32,10 +32,10 @@ const copy = getSiteCopy(locale);
 <BaseLayout title={`${project.title} — ${copy.meta.caseStudySuffix}`} description={project.longDescription ?? project.description} locale={locale}>
 	<div class="site-grid site-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
 
-	<ScrollProgress client:media="(min-width: 768px)" />
+	<ScrollProgress />
 	<Header client:load pathname={pathname} locale={locale} />
 	<main class="relative z-10 min-h-screen">
-		<CaseStudy client:load slug={slug!} locale={locale} />
+		<CaseStudy slug={slug!} locale={locale} />
 	</main>
 	<Footer locale={locale} />
 </BaseLayout>

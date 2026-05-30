@@ -1,8 +1,8 @@
-"use client";
-
 import { getProfile } from "@/content/profile";
 import type { Locale } from "@/lib/i18n";
-import { motion, useReducedMotion } from "framer-motion";
+import type { CSSProperties } from "react";
+
+type RevealStyle = CSSProperties & Record<"--reveal-delay", string>;
 
 type AvailabilityStatusProps = {
 	className?: string;
@@ -15,22 +15,13 @@ type ResponseTimeStatusProps = {
 };
 
 export default function AvailabilityStatus({ className = "", locale = "en" }: AvailabilityStatusProps) {
-	const reduceMotion = useReducedMotion();
 	const profile = getProfile(locale);
 	const { label, engagement, roles } = profile.availabilityStatus;
 
-	const motionProps = !reduceMotion
-		? {
-				initial: { opacity: 0, y: 8 },
-				animate: { opacity: 1, y: 0 },
-				transition: { duration: 0.45, delay: 0.04, ease: [0.22, 1, 0.36, 1] as const },
-			}
-		: {};
-
 	return (
-		<motion.div
-			{...motionProps}
-			className={`flex max-w-lg items-stretch gap-3.5 ${className}`}
+		<div
+			className={`site-reveal flex max-w-lg items-stretch gap-3.5 ${className}`}
+			style={{ "--reveal-delay": "0.04s" } as RevealStyle}
 			aria-label={profile.availability}
 		>
 			<span className="w-px shrink-0 rounded-full bg-brand-emerald" aria-hidden="true" />
@@ -42,27 +33,18 @@ export default function AvailabilityStatus({ className = "", locale = "en" }: Av
 				</p>
 				<p className="font-satoshi text-sm leading-relaxed text-brand-muted">{roles.join(", ")}</p>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
 
 export function ResponseTimeStatus({ className = "", locale = "en" }: ResponseTimeStatusProps) {
-	const reduceMotion = useReducedMotion();
 	const profile = getProfile(locale);
 	const { label, detail } = profile.responseTime;
 
-	const motionProps = !reduceMotion
-		? {
-				initial: { opacity: 0, y: 10 },
-				animate: { opacity: 1, y: 0 },
-				transition: { duration: 0.5, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const },
-			}
-		: {};
-
 	return (
-		<motion.div
-			{...motionProps}
-			className={`flex w-full items-center gap-3.5 rounded-xl border border-brand-border bg-brand-zinc/40 px-5 py-4 ${className}`}
+		<div
+			className={`site-reveal flex w-full items-center gap-3.5 rounded-xl border border-brand-border bg-brand-zinc/40 px-5 py-4 ${className}`}
+			style={{ "--reveal-delay": "0.06s" } as RevealStyle}
 			aria-label={`${label}: ${detail}`}
 		>
 			<ClockIcon className="h-5 w-5 shrink-0 text-brand-emerald" />
@@ -70,7 +52,7 @@ export function ResponseTimeStatus({ className = "", locale = "en" }: ResponseTi
 				<p className="font-satoshi text-[10px] font-medium uppercase tracking-wide text-brand-muted">{label}</p>
 				<p className="mt-0.5 font-satoshi text-sm font-medium leading-snug text-brand-ivory">{detail}</p>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
 

@@ -9,7 +9,7 @@ import Experience from "@/components/site/experience.astro";
 import Skills from "@/components/site/skills";
 import About from "@/components/site/about.astro";
 import Contact from "@/components/site/contact";
-import ScrollProgress from "@/components/shared/scroll-progress";
+import ScrollProgress from "@/components/shared/scroll-progress.astro";
 
 const pathname = Astro.url.pathname;
 const locale = "it";
@@ -18,12 +18,12 @@ const locale = "it";
 <BaseLayout locale={locale}>
 	<div class="site-grid site-grid-fade pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
 
-	<ScrollProgress client:media="(min-width: 768px)" />
+	<ScrollProgress />
 	<Header client:load pathname={pathname} locale={locale} />
 
 	<div class="relative z-10">
 		<div class="mx-auto max-w-[1180px] px-5 sm:px-8">
-			<Hero client:idle locale={locale} />
+			<Hero locale={locale} />
 		</div>
 
 		<main id="main" class="mx-auto max-w-[1180px] px-5 sm:px-8">

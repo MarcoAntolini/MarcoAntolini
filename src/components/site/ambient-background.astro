@@ -2,25 +2,18 @@
 /** Floating brand orbs + edge glows — v1-style ambient lights, tuned for v4 palette. */
 ---
 
-<div class="site-ambient-background pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+<div class="site-ambient-background pointer-events-none fixed inset-x-0 top-0 z-0 h-[78dvh] overflow-hidden" aria-hidden="true">
 	<div
-		class="site-animate-float-slow absolute -left-[20%] top-[10%] h-[420px] w-[420px] rounded-full bg-brand-emerald/20 blur-[100px] motion-reduce:animate-none"
+		class="absolute -left-24 top-24 h-72 w-72 rounded-full bg-brand-emerald/14 blur-[76px]"
 	>
 	</div>
 	<div
-		class="site-animate-float-slow absolute -right-[15%] top-[35%] h-[380px] w-[380px] rounded-full bg-brand-teal/15 blur-[90px] motion-reduce:animate-none"
-		style="animation-delay: -6s"
+		class="absolute right-[-7rem] top-52 h-80 w-80 rounded-full bg-brand-teal/10 blur-[72px]"
 	>
 	</div>
 	<div
-		class="site-animate-pulse-glow absolute bottom-0 left-1/2 h-[320px] w-[600px] -translate-x-1/2 rounded-full bg-brand-emerald/10 blur-[80px] motion-reduce:animate-none"
-	>
-	</div>
-	<div
-		class="site-animate-float-slow absolute bottom-[15%] left-[20%] h-[280px] w-[280px] rounded-full bg-brand-emerald/8 blur-[70px] motion-reduce:animate-none"
-		style="animation-delay: -12s"
+		class="absolute left-1/2 top-12 h-px w-[min(720px,80vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-brand-emerald/45 to-transparent"
 	>
 	</div>
 	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-emerald/40 to-transparent"></div>
-	<div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-emerald/20 to-transparent"></div>
 </div>

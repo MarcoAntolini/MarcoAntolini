@@ -3,7 +3,6 @@
 import { getProfile } from "@/content/profile";
 import { getSiteCopy } from "@/content/site-copy";
 import { alternateLocale, localizedPath, locales, stripLocalePrefix, type Locale } from "@/lib/i18n";
-import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState, type MouseEvent } from "react";
 
 type HeaderProps = {
@@ -19,7 +18,6 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<string | null>(null);
-	const reduceMotion = useReducedMotion();
 	const copy = getSiteCopy(locale);
 	const profile = getProfile(locale);
 	const navItems = copy.header.nav;
@@ -39,7 +37,7 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 		if (window.location.hash) {
 			window.history.replaceState(null, "", homePath);
 		}
-		scrollToTop(!reduceMotion);
+		scrollToTop(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 	}
 
 	const logoHref = localizedPath("/", locale);
@@ -57,57 +55,26 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 			return;
 		}
 
-		const topResetThreshold = 80;
-		const activationOffset = 160;
-		const bottomThreshold = 48;
-		let frame = 0;
+		const sections = navItems
+			.map((item) => document.getElementById(item.sectionId))
+			.filter((section): section is HTMLElement => Boolean(section));
+		if (sections.length === 0) return;
 
-		const updateActiveSection = () => {
-			const scrollY = window.scrollY;
-			if (scrollY < topResetThreshold) {
-				setActiveSection((prev) => (prev === null ? prev : null));
-				return;
-			}
-
-			const atPageBottom =
-				window.innerHeight + scrollY >= document.documentElement.scrollHeight - bottomThreshold;
-
-			let current: string | null = null;
-
-			if (atPageBottom) {
-				current = navItems[navItems.length - 1]?.sectionId ?? null;
-			} else {
-				for (const item of navItems) {
-					const section = document.getElementById(item.sectionId);
-					if (!section) continue;
-
-					const sectionTop = section.getBoundingClientRect().top + scrollY;
-					if (scrollY + activationOffset >= sectionTop) {
-						current = item.sectionId;
-					}
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+				if (visible?.target.id) {
+					setActiveSection((prev) => (prev === visible.target.id ? prev : visible.target.id));
 				}
-			}
+			},
+			{ rootMargin: "-18% 0px -62% 0px", threshold: [0.12, 0.4, 0.7] },
+		);
 
-			setActiveSection((prev) => (prev === current ? prev : current));
-		};
-
-		const requestUpdate = () => {
-			if (frame) return;
-			frame = window.requestAnimationFrame(() => {
-				frame = 0;
-				updateActiveSection();
-			});
-		};
-
-		updateActiveSection();
-		window.addEventListener("scroll", requestUpdate, { passive: true });
-		window.addEventListener("resize", requestUpdate);
-		window.addEventListener("hashchange", requestUpdate);
+		sections.forEach((section) => observer.observe(section));
 		return () => {
-			window.removeEventListener("scroll", requestUpdate);
-			window.removeEventListener("resize", requestUpdate);
-			window.removeEventListener("hashchange", requestUpdate);
-			if (frame) window.cancelAnimationFrame(frame);
+			observer.disconnect();
 		};
 	}, [isHome]);
 
@@ -127,11 +94,8 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 
 	return (
 		<header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-			<motion.div
-				className={`mx-auto flex max-w-[1180px] items-center justify-between rounded-2xl border px-4 py-3 transition-colors duration-300 motion-reduce:transition-none sm:px-6 ${headerClass}`}
-				initial={reduceMotion ? false : { y: -20, opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
-				transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+			<div
+				className={`site-header-shell mx-auto flex max-w-[1180px] items-center justify-between rounded-2xl border px-4 py-3 transition-colors duration-300 motion-reduce:transition-none sm:px-6 ${headerClass}`}
 			>
 				<a
 					href={logoHref}
@@ -161,11 +125,7 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 							>
 								{item.label}
 								{isActive ? (
-									<motion.span
-										layoutId="site-nav-active"
-										className="absolute inset-x-2 -bottom-0.5 h-px bg-brand-emerald"
-										transition={{ type: "spring", stiffness: 380, damping: 32 }}
-									/>
+									<span className="absolute inset-x-2 -bottom-0.5 h-px bg-brand-emerald" />
 								) : null}
 							</a>
 						);
@@ -192,16 +152,13 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 					{menuOpen ? <CloseIcon /> : <MenuIcon />}
 					<span className="sr-only">{menuOpen ? copy.header.closeMenu : copy.header.openMenu}</span>
 				</button>
-			</motion.div>
+			</div>
 
 			{menuOpen ? (
-				<motion.nav
+				<nav
 					id="site-mobile-nav"
-					className="mx-auto mt-2 max-w-[1180px] rounded-2xl border border-brand-border bg-brand-obsidian/95 p-4 backdrop-blur-xl md:hidden"
+					className="site-mobile-menu mx-auto mt-2 max-w-[1180px] rounded-2xl border border-brand-border bg-brand-obsidian/95 p-4 backdrop-blur-xl md:hidden"
 					aria-label="Mobile"
-					initial={reduceMotion ? false : { opacity: 0, y: -8 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.25 }}
 				>
 					<ul className="flex flex-col gap-1">
 						{navItems.map((item) => (
@@ -239,7 +196,7 @@ export default function Header({ pathname = "/", locale = "en" }: HeaderProps) {
 							</a>
 						</li>
 					</ul>
-				</motion.nav>
+				</nav>
 			) : null}
 		</header>
 	);

@@ -1,18 +1,16 @@
-"use client";
-
-import { TextReveal } from "@/components/shared/motion";
 import AvailabilityStatus from "@/components/availability-status";
 import { getProfile } from "@/content/profile";
 import { getSiteCopy } from "@/content/site-copy";
 import type { Locale } from "@/lib/i18n";
-import { motion, useReducedMotion } from "framer-motion";
+import type { CSSProperties } from "react";
+
+type RevealStyle = CSSProperties & Record<"--reveal-delay", string>;
 
 type HeroProps = {
 	locale?: Locale;
 };
 
 export default function Hero({ locale = "en" }: HeroProps) {
-	const reduceMotion = useReducedMotion();
 	const profile = getProfile(locale);
 	const copy = getSiteCopy(locale);
 
@@ -22,28 +20,24 @@ export default function Hero({ locale = "en" }: HeroProps) {
 				<div>
 					<AvailabilityStatus locale={locale} />
 
-					<motion.h1
-						className="mt-7 overflow-visible font-satoshi text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-						initial={reduceMotion ? false : { opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.4, delay: 0.15 }}
+					<h1
+						className="site-reveal mt-7 overflow-visible font-satoshi text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+						style={{ "--reveal-delay": "0.12s" } as RevealStyle}
 					>
-						<TextReveal as="span" text={profile.name} className="block leading-[1.08] text-brand-ivory" delay={0.2} />
+						<span className="block leading-[1.08] text-brand-ivory">{profile.name}</span>
 						<span className="mt-3 block text-2xl font-semibold text-brand-emerald sm:text-3xl lg:text-4xl">
 							{profile.title}
 						</span>
-					</motion.h1>
+					</h1>
 
-					<motion.p
-						className="mt-6 max-w-xl text-lg leading-relaxed text-brand-muted sm:text-xl"
-						initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.45 }}
+					<p
+						className="site-reveal mt-6 max-w-xl text-lg leading-relaxed text-brand-muted sm:text-xl"
+						style={{ "--reveal-delay": "0.22s" } as RevealStyle}
 					>
 						{profile.heroLine}
-					</motion.p>
+					</p>
 
-					<div className="mt-10 flex flex-wrap items-center gap-3">
+					<div className="site-reveal mt-10 flex flex-wrap items-center gap-3" style={{ "--reveal-delay": "0.32s" } as RevealStyle}>
 						<a
 							href="#contact"
 							className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-brand-obsidian transition-colors duration-200 hover:bg-brand-emerald/85 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
@@ -72,21 +66,17 @@ export default function Hero({ locale = "en" }: HeroProps) {
 							<GitHubIcon />
 						</a>
 					</div>
-					<motion.p
-						className="mt-8 font-space-mono text-xs text-brand-muted/80"
-						initial={reduceMotion ? false : { opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.5, delay: 0.7 }}
+					<p
+						className="site-reveal mt-8 font-space-mono text-xs text-brand-muted/80"
+						style={{ "--reveal-delay": "0.4s" } as RevealStyle}
 					>
 						{profile.location}
-					</motion.p>
+					</p>
 				</div>
 
-				<motion.div
-					className="relative mx-auto lg:mx-0"
-					initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.65, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+				<div
+					className="site-reveal relative mx-auto lg:mx-0"
+					style={{ "--reveal-delay": "0.24s" } as RevealStyle}
 				>
 					<div className="site-frame rounded-[1.75rem] p-2 sm:p-2.5">
 						<div className="site-frame-inner site-hairline overflow-hidden rounded-[1.35rem]">
@@ -107,7 +97,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
 							</div>
 						</div>
 					</div>
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);

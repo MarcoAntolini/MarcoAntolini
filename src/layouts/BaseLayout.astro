@@ -1,6 +1,5 @@
 ---
 import AmbientBackground from "@/components/site/ambient-background.astro";
-import CursorGlow from "@/components/shared/cursor-glow";
 import ToastProvider from "@/components/toast-provider";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -28,6 +27,7 @@ const { title = defaultTitle, description = defaultDescription, noindex = false 
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const alternatePath = stripLocalePrefix(Astro.url.pathname);
 const jsonLd = JSON.stringify(personJsonLd(locale));
+const revealBootScript = `document.documentElement.classList.add("site-reveal-ready");`;
 ---
 
 <!doctype html>
@@ -61,6 +61,7 @@ const jsonLd = JSON.stringify(personJsonLd(locale));
 			href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
 			rel="stylesheet"
 		/>
+		<script is:inline set:html={revealBootScript}></script>
 		<Analytics />
 		<SpeedInsights />
 	</head>
@@ -73,9 +74,27 @@ const jsonLd = JSON.stringify(personJsonLd(locale));
 			{copy.skipToContent}
 		</a>
 		<AmbientBackground />
-		<CursorGlow client:media="(hover: hover) and (pointer: fine)" />
 		<slot />
 		<div class="site-noise pointer-events-none fixed inset-0 z-[1] opacity-55" aria-hidden="true"></div>
+		<script>
+			const revealItems = document.querySelectorAll<HTMLElement>(".site-reveal, .site-word-reveal");
+			if (revealItems.length > 0 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-visible");
+								observer.unobserve(entry.target);
+							}
+						}
+					},
+					{ rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+				);
+				revealItems.forEach((item) => observer.observe(item));
+			} else {
+				revealItems.forEach((item) => item.classList.add("is-visible"));
+			}
+		</script>
 		<ToastProvider client:idle />
 	</body>
 </html>
