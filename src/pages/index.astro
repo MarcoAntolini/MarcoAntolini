@@ -5,9 +5,9 @@ import Header from "@/components/site/header";
 import Hero from "@/components/site/hero";
 import Work from "@/components/site/work";
 import Workshop from "@/components/site/workshop";
-import Experience from "@/components/site/experience";
+import Experience from "@/components/site/experience.astro";
 import Skills from "@/components/site/skills";
-import About from "@/components/site/about";
+import About from "@/components/site/about.astro";
 import Contact from "@/components/site/contact";
 import ScrollProgress from "@/components/shared/scroll-progress";
 
@@ -29,9 +29,9 @@ const locale = "en";
 		<main id="main" class="mx-auto max-w-[1180px] px-5 sm:px-8">
 			<Work locale={locale} />
 			<Workshop locale={locale} />
-			<Experience client:visible locale={locale} />
+			<Experience locale={locale} />
 			<Skills locale={locale} />
-			<About client:visible locale={locale} />
+			<About locale={locale} />
 			<Contact client:visible locale={locale} />
 		</main>
 

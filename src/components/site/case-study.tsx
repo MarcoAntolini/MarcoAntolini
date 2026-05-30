@@ -43,7 +43,7 @@ export default function CaseStudy({ slug, locale = "en" }: CaseStudyProps) {
 		caseStudy.headerSecondaryCta && !isExternalSecondary
 			? localizedPath(caseStudy.headerSecondaryCta.href, locale)
 			: caseStudy.headerSecondaryCta?.href;
-	const banner = slug === "csshub" ? "/projects/banners/csshub.png" : project.banner;
+	const banner = project.banner;
 	const currentIndex = caseStudies.findIndex((study) => study.slug === slug);
 	const nextCaseStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
 	const nextProject = nextCaseStudy ? getProjectBySlug(nextCaseStudy.slug, locale) : null;
